@@ -8,7 +8,6 @@ import { StoreComponent } from './store/store.component';
 import { ProductsService } from './model/products.service';
 import { AuthService } from './auth/auth.service';
 import { PRODUCTS } from './model/static.datasource';
-import { CounterDirective } from './store/counter.directive';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DetailCardComponent } from './detail-card/detail-card.component';
@@ -22,7 +21,6 @@ import { ProductResolveService } from './detail-card/product-resolve.service';
   declarations: [
     AppComponent,
     StoreComponent,
-    CounterDirective,
     DashboardComponent,
     DetailCardComponent,
     TypeCategoryPipe,
