@@ -9,6 +9,13 @@
         <option value="white">white</option>
       </select>
     </div>
+    <div class="block">
+      <span>Выберите Включение/Отключение кнопок навигации </span>
+      <select class="form-control" name="background" formControlName="buttons">
+        <option value="true">Включить</option>
+        <option value="false">Отключить</option>
+      </select>
+    </div>
     <input type="submit" value="Accept"
     (click)='setLocaleStorage()'>
   </div>

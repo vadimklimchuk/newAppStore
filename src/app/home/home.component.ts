@@ -28,7 +28,8 @@ export class HomeComponent implements OnInit {
 
     //  Forms validation
     this.formModel = this.fb.group({
-      background: ['', Validators.required]
+      background: ['', Validators.required],
+      buttons: ['', Validators.required]
     })
   }
 

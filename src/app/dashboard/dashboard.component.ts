@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
-    this.getBackground();
+    // this.getBackground();
   }
 
   getProducts():void {
@@ -23,12 +23,13 @@ export class DashboardComponent implements OnInit {
       .subscribe(product => this.products = product);
   }
 
-  getBackground() {
-    const bg: HTMLDivElement = document.querySelector('.block-wrap');
+  // getBackground() {
+  //   const bg: HTMLDivElement = document.querySelector('.block-wrap');
     
-    const storageBg = localStorage.getItem('obj');
-    const json = JSON.parse(storageBg);
+  //   const storageBg = localStorage.getItem('obj');
+  //   const json = JSON.parse(storageBg);
+  //   const bgDash = json.background;
 
-    bg.style.backgroundColor = json.background;
-  }
+  //   bg.style.backgroundColor = json.background;
+  // }
 }
