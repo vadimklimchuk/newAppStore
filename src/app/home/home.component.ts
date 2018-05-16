@@ -28,13 +28,11 @@ export class HomeComponent implements OnInit {
 
     //  Forms validation
     this.formModel = this.fb.group({
-      background: ['', Validators.required],
-      color: ['', Validators.required]
+      background: ['', Validators.required]
     })
   }
 
   setLocaleStorage() {
     localStorage.setItem('obj', JSON.stringify(this.formModel.value));
   }
-
 }
