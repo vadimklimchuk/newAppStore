@@ -1,0 +1,28 @@
+<h4 *ngIf="auth.isAuthenticated()">
+  <div *ngIf="profile">You are logged in! {{profile.name}}</div>
+  <div class="forms" [formGroup]="formModel">
+    <div class="block">
+      <span>Выберите background для страницы Dashboard</span>
+      <select class="form-control" name="background" formControlName="background">
+        <option value="blue">blue</option>
+        <option value="green">green</option>
+        <option value="white">white</option>
+      </select>
+    </div>
+    <div class="block">
+      <span>Выберите цвет для Заголовка страницы</span>
+      <select class="form-control" name="color" formControlName="color">
+        <option value="yellow">yellow</option>
+        <option value="green">green</option>
+        <option value="white">white</option>
+      </select>
+    </div>
+    <input type="submit" value="Accept"
+    (click)='setLocaleStorage()'>
+  </div>
+</h4>
+{{formModel.value | json}}
+
+<h4 *ngIf="!auth.isAuthenticated()">
+  You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
+</h4>

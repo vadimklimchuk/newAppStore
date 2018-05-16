@@ -1,0 +1,35 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { Product } from "../model/product.model";
+import { ProductsService } from '../model/products.service';
+
+@Component({
+  selector: 'app-detail-card',
+  templateUrl: './detail-card.component.html',
+  styleUrls: ['./detail-card.component.css']
+})
+export class DetailCardComponent implements OnInit {
+  product: Product;
+
+  constructor(private productsService: ProductsService,
+              private route: ActivatedRoute,
+              private location: Location) { }
+
+  ngOnInit() {
+    this.getProduct();
+  }
+
+  getProduct() {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.productsService.getProduct(id).subscribe(product => {
+      this.product = product;
+    })
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+}

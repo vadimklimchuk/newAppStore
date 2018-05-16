@@ -1,0 +1,30 @@
+<h1>{{title}}</h1>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+      <form class="form-inline">
+        <button class="btn btn-primary my-2 my-sm-0 mr-2"
+          routerLink="/home" type="button">
+            Home
+        </button>
+
+        <button id="qsLoginBtn"
+          class="btn btn-primary my-2 my-sm-0"
+          *ngIf="!auth.isAuthenticated()"
+          (click)="auth.login()" type="button">
+            Log In
+        </button>
+
+        <button id="qsLogoutBtn"
+          class="btn btn-primary my-2 my-sm-0"
+          *ngIf="auth.isAuthenticated()"
+          (click)="auth.logout()" type="button">
+            Log Out
+        </button>
+      </form>
+  </div>
+</nav>
+<nav>
+  <a routerLink="/dashboard" class="nav-link">Dashboard</a>
+  <a routerLink="/category" class="nav-link">Category</a>
+</nav>
+<router-outlet></router-outlet>

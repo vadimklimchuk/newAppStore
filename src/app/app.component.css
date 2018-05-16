@@ -1,0 +1,27 @@
+nav {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.nav-link {
+    margin-right: 20px;
+    padding: 10px 20px;
+    background: rgb(184, 116, 16);
+    border-radius: 8px;
+    color: white;
+    transition: 0.2s;
+    width: 120px;
+    text-align: center;
+}
+.nav-link:hover {
+    background: rgb(233, 142, 7);
+}
+
+h1 {
+    text-align: center;
+}
+
+.navbar>.container, .navbar>.container-fluid {
+    justify-content: flex-end;
+}
