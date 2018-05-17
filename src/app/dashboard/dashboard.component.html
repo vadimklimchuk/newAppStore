@@ -1,12 +1,26 @@
-<div class="block-wrap">
-  <div *ngFor="let product of products"
-      class="card card-outline-primary block"
-      routerLink="/product/{{product.id}}">
-    <h4>
-        {{product.name}}
+<div *ngIf="list; else elseBlock" [ngStyle]="{background: bgDash}" class="list-wrap">
+    <ul class="list">
+        <li *ngFor="let product of products" class="list-item"
+        routerLink="/product/{{product.id}}">{{product.name}}
         <span class="pull-xs-right tag tag-pill tag-primary price">
             {{ product.price | currency:"USD":true:"2.2-2" }}
         </span>
-    </h4>
-  </div>
+        </li>
+    </ul>
 </div>
+
+<ng-template #elseBlock>
+    <div class="block-wrap" [ngStyle]="{background: bgDash}">
+        <div *ngFor="let product of products"
+            class="card card-outline-primary block"
+            routerLink="/product/{{product.id}}">
+          <h4>
+              {{product.name}}
+              <span class="pull-xs-right tag tag-pill tag-primary price">
+                  {{ product.price | currency:"USD":true:"2.2-2" }}
+              </span>
+          </h4>
+        </div>
+    </div>
+</ng-template>
+

@@ -22,3 +22,16 @@ select.ng-valid {
     transition: border-color .15s ease-in-out, box-shadow .2s ease-in-out;
     box-shadow: 0 0 1rem rgba(67, 206, 16, 0.8);
 }
+
+input {
+    padding: 5px 10px;
+    background: #10c1a8;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
