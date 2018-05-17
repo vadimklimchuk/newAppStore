@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   constructor(public auth: AuthService,
               private fb: FormBuilder) {
-    
+
   }
 
   ngOnInit() {
@@ -28,8 +28,9 @@ export class HomeComponent implements OnInit {
     //  Forms validation
     this.formModel = this.fb.group({
       background: ['', Validators.required],
-      viewDashboard: ['', Validators.required]
-    })
+      viewDashboard: ['', Validators.required],
+      action: ['', Validators.required]
+    });
   }
 
   setLocaleStorage() {

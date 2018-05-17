@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
     this.getViewDashboard()
   }
 
-  getProducts():void {
+  getProducts(): void {
     this.productsService.getProducts()
       .subscribe(product => this.products = product);
   }
