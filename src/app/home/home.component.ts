@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
-      console.log(this.profile);
     } else {
       this.auth.getProfile((err, profile) => {
         this.profile = profile;
@@ -29,7 +28,7 @@ export class HomeComponent implements OnInit {
     //  Forms validation
     this.formModel = this.fb.group({
       background: ['', Validators.required],
-      buttons: ['', Validators.required],
+      viewDashboard: ['', Validators.required],
       action: ['', Validators.required]
     });
   }

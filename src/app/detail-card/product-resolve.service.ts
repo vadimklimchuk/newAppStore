@@ -14,7 +14,7 @@ export class ProductResolveService implements Resolve<Product> {
               private router: Router) { }
 
 
-  //  Get the ID from URL and compare it with ID of users. If we find, then we display the user with this ID.
+  //  Get the ID from URL and compare it with ID of products. If we find, then we display the product with this ID.
   public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Product | null> {
     const id = +route.paramMap.get('id');
     return this.productsService.getProducts()

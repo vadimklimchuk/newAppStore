@@ -18,10 +18,29 @@ nav {
     background: rgb(233, 142, 7);
 }
 
+.title {
+    display: flex;
+    justify-content: center;
+    background: #10c1a8;
+}
 h1 {
+    display: inline;
     text-align: center;
+    margin: 0;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+h1:focus {
+    outline: none;
+}
+h1:hover {
+    opacity: 0.8;
 }
 
 .navbar>.container, .navbar>.container-fluid {
     justify-content: flex-end;
+}
+
+.navigation {
+    background: rgb(233, 224, 224);
 }

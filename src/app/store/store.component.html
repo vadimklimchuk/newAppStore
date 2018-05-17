@@ -1,8 +1,5 @@
 <div class="mainContent">
   <div class="col-xs-3 p-a-1 article">
-    <!-- <button class="btn btn-block btn-outline-primary" (click)="changeCategory()">
-        All
-    </button> -->
     <button *ngFor="let type of menuCategories" class="btn btn-outline-primary btn-block"
         [class.active]="type == selectedCategory" (click)="changeCategory(type)">
             {{type}}
@@ -14,12 +11,6 @@
         routerLink="/product/{{product.id}}">
         <span>{{product.name}}</span>
         <span>{{product.price | currency:"USD":true:"2.2-2"}}</span>
-        <!-- <h4 class="card-header">
-            {{product.name}}
-            <span class="pull-xs-right tag tag-pill tag-primary price">
-                {{ product.price | currency:"USD":true:"2.2-2" }}
-            </span>
-        </h4> -->
     </div>
 
   </div>

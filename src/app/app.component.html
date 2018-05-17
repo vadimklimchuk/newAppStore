@@ -1,4 +1,6 @@
-<h1>{{title}}</h1>
+<div class="title">
+  <h1 routerLink="/dashboard">{{title}}</h1>
+</div>
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
       <form class="form-inline">
@@ -23,7 +25,7 @@
       </form>
   </div>
 </nav>
-<nav>
+<nav class="navigation">
   <a routerLink="/dashboard" class="nav-link">Dashboard</a>
   <a routerLink="/category" class="nav-link">Category</a>
 </nav>
