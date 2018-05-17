@@ -1,23 +1,23 @@
-<div class="title">
+<div class="title text-white">
   <h1 routerLink="/dashboard">{{title}}</h1>
 </div>
 <nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
+  <div class="container-fluid d-flex justify-content-end">
       <form class="form-inline">
-        <button class="btn btn-primary my-2 my-sm-0 mr-2"
+        <button class="btn btn-info my-sm-0 mr-2"
           routerLink="/home" type="button">
             Home
         </button>
 
         <button id="qsLoginBtn"
-          class="btn btn-primary my-2 my-sm-0"
+          class="btn btn-info my-sm-0"
           *ngIf="!auth.isAuthenticated()"
           (click)="auth.login()" type="button">
             Log In
         </button>
 
         <button id="qsLogoutBtn"
-          class="btn btn-primary my-2 my-sm-0"
+          class="btn btn-info my-2 my-sm-0"
           *ngIf="auth.isAuthenticated()"
           (click)="auth.logout()" type="button">
             Log Out

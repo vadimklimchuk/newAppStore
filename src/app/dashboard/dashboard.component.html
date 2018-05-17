@@ -12,14 +12,16 @@
 <ng-template #elseBlock>
     <div class="block-wrap" [ngStyle]="{background: bgDash}">
         <div *ngFor="let product of products"
-            class="card card-outline-primary block"
+            class="card text-white block"
             routerLink="/product/{{product.id}}">
           <h4>
               {{product.name}}
+          </h4>
+          <p>
               <span class="pull-xs-right tag tag-pill tag-primary price">
                   {{ product.price | currency:"USD":true:"2.2-2" }}
               </span>
-          </h4>
+          </p>
         </div>
     </div>
 </ng-template>
