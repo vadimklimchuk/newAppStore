@@ -11,11 +11,15 @@ import { ProductsService } from '../model/products.service';
 export class DashboardComponent implements OnInit {
   products: Product[] = [];
 
+  public list: string = null;
+  public bgDash = 'white';
+
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
     this.getProducts();
     this.getBackground();
+    this.getViewDashboard()
   }
 
   getProducts():void {
@@ -23,13 +27,21 @@ export class DashboardComponent implements OnInit {
       .subscribe(product => this.products = product);
   }
 
-  getBackground() {
-    const bg = (document.querySelector('.block-wrap') as HTMLDivElement);
-    
+  getBackground():void {    
     const storageBg = localStorage.getItem('obj');
     const json = JSON.parse(storageBg);
-    const bgDash = json.background;
+    
+    this.bgDash = json.background;
+  }
 
-    bg.style.backgroundColor = json.background;
+  getViewDashboard() {
+    const storageDashboard = localStorage.getItem('obj');
+    const json = JSON.parse(storageDashboard);
+
+    if (json.viewDashboard === 'list') {
+      this.list = json.viewDashboard;
+    }
+    
+    console.log(this.list);
   }
 }

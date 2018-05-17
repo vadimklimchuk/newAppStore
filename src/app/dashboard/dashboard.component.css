@@ -16,6 +16,10 @@
     cursor: pointer;
     transition: 0.25s;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    background: #10c1a8;
+}
+.block:focus {
+    outline: none;
 }
 .block:hover {
     background: rgb(212, 203, 203);
@@ -24,4 +28,34 @@
 .price {
     display: block;
     text-align: center;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    width: 40%;
+}
+
+.list-item {
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.list-item:hover {
+    background: #5c5e0d;
+}
+
+.list-wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 30px;
 }

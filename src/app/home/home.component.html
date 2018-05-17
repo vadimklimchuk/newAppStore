@@ -4,6 +4,7 @@
     <div class="block">
       <span>Выберите background для страницы Dashboard</span>
       <select class="form-control" name="background" formControlName="background">
+        <option value="" selected disabled hidden>Choose here</option>
         <option value="blue">blue</option>
         <option value="green">green</option>
         <option value="white">white</option>
@@ -11,7 +12,8 @@
     </div>
     <div class="block">
       <span>Выберите вид отображения Dashboard </span>
-      <select class="form-control" name="background" formControlName="buttons">
+      <select class="form-control" name="background" formControlName="viewDashboard">
+        <option value="" selected disabled hidden>Choose here</option>
         <option value="block">Блочный</option>
         <option value="list">Списком</option>
       </select>
