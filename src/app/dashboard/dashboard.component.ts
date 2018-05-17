@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.getProducts();
     this.getBackground();
-    this.getViewDashboard()
+    this.getViewDashboard();
   }
 
   getProducts(): void {
@@ -27,21 +27,21 @@ export class DashboardComponent implements OnInit {
       .subscribe(product => this.products = product);
   }
 
-  getBackground():void {    
-    const storageBg = localStorage.getItem('obj');
-    const json = JSON.parse(storageBg);
-    
-    this.bgDash = json.background;
+  getBackground(): void {
+    const storageBg = localStorage.getItem('bg');
+    const bg = JSON.parse(storageBg);
+
+    if (bg !== null) {
+      this.bgDash = bg;
+    }
   }
 
   getViewDashboard() {
-    const storageDashboard = localStorage.getItem('obj');
-    const json = JSON.parse(storageDashboard);
+    const storageDashboard = localStorage.getItem('view');
+    const view = JSON.parse(storageDashboard);
 
-    if (json.viewDashboard === 'list') {
-      this.list = json.viewDashboard;
+    if (view !== null && view === 'list') {
+      this.list = view;
     }
-    
-    console.log(this.list);
   }
 }

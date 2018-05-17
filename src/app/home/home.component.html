@@ -9,6 +9,8 @@
         <option value="#F0F1F2">Light</option>
         <option value="#17a2b8">Turquoise</option>
       </select>
+      <input type="submit" value="Accept"
+    (click)='setLocaleStorageBg()'>
     </div>
 
     <div class="block">
@@ -18,6 +20,8 @@
         <option value="block">Block</option>
         <option value="list">List</option>
       </select>
+      <input type="submit" value="Accept"
+    (click)='setLocaleStorageView()'>
     </div>
 
     <div class="block">
@@ -27,10 +31,9 @@
         <option value="true">Display</option>
         <option value="false">Not display</option>
       </select>
+      <input type="submit" value="Accept"
+    (click)='setLocaleStorageCallTo()'>
     </div>
-
-    <input type="submit" value="Accept"
-    (click)='setLocaleStorage()'>
   </div>
 </h4>
 

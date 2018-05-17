@@ -8,6 +8,10 @@ h4 {
 
 select {
     margin-top: 10px;
+    cursor: pointer;
+}
+option {
+    cursor: pointer;
 }
 
 input {
@@ -16,7 +20,7 @@ input {
 
 select.ng-invalid {
     transition: border-color .15s ease-in-out, box-shadow .2s ease-in-out;
-    box-shadow: 0 0 0.5rem rgba(248, 1, 1, 0.9);
+    box-shadow: 0 0 0.5rem rgba(238, 234, 241, 0.055);
 }
 select.ng-valid {
     transition: border-color .15s ease-in-out, box-shadow .2s ease-in-out;
@@ -24,7 +28,7 @@ select.ng-valid {
 }
 
 input {
-  padding: 5px 10px;
+    padding: 5px 10px;
     background: #10c1a8;
     outline: none;
     border: none;
@@ -34,4 +38,11 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.25s;
+}
+input:hover {
+    background: #0f5c52;
+}
+input:active {
+    background: #042924;
 }

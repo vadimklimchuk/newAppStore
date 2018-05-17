@@ -25,15 +25,28 @@ export class HomeComponent implements OnInit {
       });
     }
 
-    //  Forms validation
+    // Forms validation
     this.formModel = this.fb.group({
       background: ['', Validators.required],
       viewDashboard: ['', Validators.required],
       action: ['', Validators.required]
     });
+    console.log(this.formModel.value);
   }
 
-  setLocaleStorage() {
-    localStorage.setItem('obj', JSON.stringify(this.formModel.value));
+  setLocaleStorageBg() {
+    localStorage.setItem('bg', JSON.stringify(this.formModel.value.background));
   }
+
+  setLocaleStorageView() {
+    localStorage.setItem('view', JSON.stringify(this.formModel.value.viewDashboard));
+  }
+
+  setLocaleStorageCallTo() {
+    localStorage.setItem('callTo', JSON.stringify(this.formModel.value.action));
+  }
+
+  // setLocaleStorage() {
+  //   localStorage.setItem('obj', JSON.stringify(this.formModel.value));
+  // }
 }
