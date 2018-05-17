@@ -15,6 +15,7 @@ import { TypeCategoryPipe } from './store/type-category.pipe';
 import { HomeComponent } from './home/home.component';
 import { CallbackComponent } from './callback/callback.component';
 import { ProductResolveService } from './detail-card/product-resolve.service';
+import { CallToActionComponent } from './call-to-action/call-to-action.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ProductResolveService } from './detail-card/product-resolve.service';
     DetailCardComponent,
     TypeCategoryPipe,
     HomeComponent,
-    CallbackComponent
+    CallbackComponent,
+    CallToActionComponent
   ],
   imports: [
     BrowserModule,

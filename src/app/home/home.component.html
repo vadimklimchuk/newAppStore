@@ -4,16 +4,23 @@
     <div class="block">
       <span>Выберите background для страницы Dashboard</span>
       <select class="form-control" name="background" formControlName="background">
-        <option value="blue">blue</option>
-        <option value="green">green</option>
-        <option value="white">white</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="white">White</option>
       </select>
     </div>
     <div class="block">
       <span>Выберите вид отображения Dashboard </span>
-      <select class="form-control" name="background" formControlName="buttons">
-        <option value="block">Блочный</option>
-        <option value="list">Списком</option>
+      <select class="form-control" name="dashboard" formControlName="buttons">
+        <option value="block">Block</option>
+        <option value="list">List</option>
+      </select>
+    </div>
+    <div class="block">
+      <span>Выберите, отображать ли форму обратной связи </span>
+      <select class="form-control" name="callToAction" formControlName="action">
+        <option value="true">Отображать</option>
+        <option value="false">Не отображать</option>
       </select>
     </div>
     <input type="submit" value="Accept"

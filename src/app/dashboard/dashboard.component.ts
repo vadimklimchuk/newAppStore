@@ -18,17 +18,15 @@ export class DashboardComponent implements OnInit {
     this.getBackground();
   }
 
-  getProducts():void {
+  getProducts(): void {
     this.productsService.getProducts()
       .subscribe(product => this.products = product);
   }
 
   getBackground() {
     const bg = (document.querySelector('.block-wrap') as HTMLDivElement);
-    
     const storageBg = localStorage.getItem('obj');
     const json = JSON.parse(storageBg);
-    const bgDash = json.background;
 
     bg.style.backgroundColor = json.background;
   }
