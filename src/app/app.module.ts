@@ -17,7 +17,6 @@ import { CallbackComponent } from './callback/callback.component';
 import { ProductResolveService } from './detail-card/product-resolve.service';
 import { CallToActionComponent } from './call-to-action/call-to-action.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

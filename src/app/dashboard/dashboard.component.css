@@ -16,13 +16,15 @@
     cursor: pointer;
     transition: 0.25s;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-    background: #10c1a8;
+    background: #17a2b8;
 }
+
 .block:focus {
     outline: none;
 }
+
 .block:hover {
-    background: rgb(212, 203, 203);
+    background: rgb(28, 144, 169);
 }
 
 .price {
@@ -50,7 +52,8 @@
 }
 
 .list-item:hover {
-    background: #5c5e0d;
+    background: #177288;
+    color: white;
 }
 
 .list-wrap {

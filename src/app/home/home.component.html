@@ -2,37 +2,37 @@
   <div *ngIf="profile">You are logged in! {{profile.name}}</div>
   <div class="forms" [formGroup]="formModel">
     <div class="block">
-      <span>Выберите background для страницы Dashboard</span>
+      <span>Select background for the Dashboard page</span>
       <select class="form-control" name="background" formControlName="background">
         <option value="" selected disabled hidden>Choose here</option>
-        <option value="blue">blue</option>
-        <option value="green">green</option>
-        <option value="white">white</option>
+        <option value="#343A40">Dark</option>
+        <option value="#F0F1F2">Light</option>
+        <option value="#17a2b8">Turquoise</option>
       </select>
     </div>
-    
+
     <div class="block">
-      <span>Выберите вид отображения Dashboard </span>
+      <span>Select the Dashboard display type</span>
       <select class="form-control" name="background" formControlName="viewDashboard">
         <option value="" selected disabled hidden>Choose here</option>
-        <option value="block">Блочный</option>
-        <option value="list">Списком</option>
+        <option value="block">Block</option>
+        <option value="list">List</option>
       </select>
     </div>
-    
+
     <div class="block">
-      <span>Выберите, отображать ли форму обратной связи </span>
+      <span>Select whether to display the call to action</span>
       <select class="form-control" name="callToAction" formControlName="action">
-        <option value="true">Отображать</option>
-        <option value="false">Не отображать</option>
+        <option value="" selected disabled hidden>Choose here</option>
+        <option value="true">Display</option>
+        <option value="false">Not display</option>
       </select>
     </div>
-    
+
     <input type="submit" value="Accept"
     (click)='setLocaleStorage()'>
   </div>
 </h4>
-{{formModel.value | json}}
 
 <h4 *ngIf="!auth.isAuthenticated()">
   You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
