@@ -16,17 +16,7 @@ export class CallToActionComponent implements OnInit {
 
   getCTA() {
     const action = JSON.parse(localStorage.getItem('callTo'));
-
-    if (action === null) {
-      return true;
-    } else {
-        if (action === 'true' || action === '') {
-          return true;
-        } else {
-          return false;
-        }
-    }
-
+    return JSON.parse(action || action !== null);
   }
 }
 

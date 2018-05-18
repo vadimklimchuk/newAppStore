@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
       viewDashboard: ['', Validators.required],
       action: ['', Validators.required]
     });
-    console.log(this.formModel.value);
   }
 
   setLocaleStorageBg() {
@@ -46,7 +45,4 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('callTo', JSON.stringify(this.formModel.value.action));
   }
 
-  // setLocaleStorage() {
-  //   localStorage.setItem('obj', JSON.stringify(this.formModel.value));
-  // }
 }
