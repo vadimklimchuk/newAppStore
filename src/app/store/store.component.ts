@@ -8,10 +8,10 @@ import { ProductsService } from "../model/products.service";
   styleUrls: ['./store.component.css']
 })
 export class StoreComponent implements OnInit {
-  public selectedCategory = 'Category 1';
+  public selectedCategory: string = 'Category 1';
   public products: Product[];
 
-  public menuCategories: Array<string> = ['Category 1', 'Category 2', 'Category 3']
+  public menuCategories: Array<string> = ['Category 1', 'Category 2', 'Category 3'];
 
   constructor(private productsService: ProductsService) { }
 
@@ -19,14 +19,14 @@ export class StoreComponent implements OnInit {
     this.getProducts();
   }
 
-  getProducts() {
+  getProducts(): void {
     this.productsService.getProducts()
       .subscribe(products => {
         this.products = products
       })
   }
 
-  changeCategory(newCategory?: string) {
+  changeCategory(newCategory?: string): void {
     this.selectedCategory = newCategory;
   }
 }

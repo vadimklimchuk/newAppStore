@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./call-to-action.component.css']
 })
 export class CallToActionComponent implements OnInit {
-  public callTo = 'true';
+  public callTo: string = 'true';
 
   constructor() { }
 
@@ -14,7 +14,7 @@ export class CallToActionComponent implements OnInit {
     this.getCTA();
   }
 
-  getCTA() {
+  getCTA(): void {
     const action = JSON.parse(localStorage.getItem('callTo'));
     return JSON.parse(action || action !== null);
   }
