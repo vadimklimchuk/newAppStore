@@ -12,7 +12,7 @@ import { ProductsService } from '../model/products.service';
   styleUrls: ['./detail-card.component.css']
 })
 export class DetailCardComponent implements OnInit {
-  product: Product;
+  public product: Product;
 
   constructor(private productsService: ProductsService,
               private route: ActivatedRoute,
@@ -22,7 +22,7 @@ export class DetailCardComponent implements OnInit {
     this.getProduct();
   }
 
-  getProduct() {
+  getProduct():void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.productsService.getProduct(id).subscribe(product => {
       this.product = product;

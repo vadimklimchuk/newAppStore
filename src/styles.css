@@ -3,7 +3,24 @@
     padding: 0;
     box-sizing: border-box;
 }
+*:focus {
+    outline: none;
+}
 
 body {
     background: rgb(233, 224, 224);
 }
+
+body, html {
+    min-height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.content {
+    padding-bottom: 100px;
+}
+

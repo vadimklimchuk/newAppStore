@@ -9,7 +9,7 @@ import { ProductsService } from '../model/products.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  products: Product[] = [];
+  public products: Product[] = [];
 
   public list: string = null;
   public bgDash = 'white';
@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  getViewDashboard() {
+  getViewDashboard(): void {
     const storageDashboard = localStorage.getItem('view');
     const view = JSON.parse(storageDashboard);
 

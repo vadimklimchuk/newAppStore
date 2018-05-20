@@ -9,7 +9,7 @@ import { ProductsService } from './model/products.service';
 import { AuthService } from './auth/auth.service';
 import { PRODUCTS } from './model/static.datasource';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { DetailCardComponent } from './detail-card/detail-card.component';
 import { TypeCategoryPipe } from './store/type-category.pipe';
 import { HomeComponent } from './home/home.component';

@@ -8,7 +8,7 @@ import { ProductsService } from "../model/products.service";
   styleUrls: ['./store.component.css']
 })
 export class StoreComponent implements OnInit {
-  public selectedCategory = 'Category 1';
+  public selectedCategory: string = 'Category 1';
   public products: Product[];
 
   public menuCategories: Set<string> = new Set();
@@ -20,7 +20,7 @@ export class StoreComponent implements OnInit {
     this.getCategories();
   }
 
-  getProducts() {
+  getProducts(): void {
     this.productsService.getProducts()
       .subscribe(products => {
         this.products = products;
@@ -33,7 +33,7 @@ export class StoreComponent implements OnInit {
     }
   }
 
-  changeCategory(newCategory?: string) {
+  changeCategory(newCategory?: string): void {
     this.selectedCategory = newCategory;
   }
 }
