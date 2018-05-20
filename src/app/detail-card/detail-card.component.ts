@@ -22,11 +22,11 @@ export class DetailCardComponent implements OnInit {
     this.getProduct();
   }
 
-  getProduct():void {
+  getProduct(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.productsService.getProduct(id).subscribe(product => {
       this.product = product;
-    })
+    });
   }
 
   goBack(): void {
