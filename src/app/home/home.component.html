@@ -1,5 +1,5 @@
 <h4 *ngIf="auth.isAuthenticated()">
-  <div *ngIf="profile">You are logged in! {{profile.name}}</div>
+  <div *ngIf="profile">Hello {{profile.name}}. You can to change some styles</div>
   <div class="forms" [formGroup]="formModel">
     <div class="block">
       <span>Select background for the Dashboard page</span>
