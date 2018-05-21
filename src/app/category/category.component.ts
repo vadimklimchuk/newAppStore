@@ -4,26 +4,33 @@ import { ProductsService } from "../model/products.service";
 
 @Component({
   selector: 'app-store',
-  templateUrl: './store.component.html',
-  styleUrls: ['./store.component.css']
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.css']
 })
 export class StoreComponent implements OnInit {
   public selectedCategory: string = 'Category 1';
   public products: Product[];
 
-  public menuCategories: Array<string> = ['Category 1', 'Category 2', 'Category 3'];
+  public menuCategories: Set<string> = new Set();
 
   constructor(private productsService: ProductsService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getProducts();
+    this.getCategories();
   }
 
   getProducts(): void {
     this.productsService.getProducts()
       .subscribe(products => {
-        this.products = products
-      })
+        this.products = products;
+      });
+  }
+
+  getCategories() {
+    for (const i of this.products) {
+      this.menuCategories.add(i.category);
+    }
   }
 
   changeCategory(newCategory?: string): void {

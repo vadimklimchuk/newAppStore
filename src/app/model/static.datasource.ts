@@ -105,5 +105,12 @@ export const PRODUCTS: Product[] = [
         category: "Category 3",
         description: "Product 15 (Category 3)",
         price: 100
+    },
+    {
+        id: 16,
+        name: "Product 16",
+        category: "Category 4",
+        description: "Product 16 (Category 4)",
+        price: 100
     }
 ];

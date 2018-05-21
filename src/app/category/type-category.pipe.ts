@@ -13,7 +13,7 @@ export class TypeCategoryPipe implements PipeTransform {
 
     return products.filter(product =>
       product.category.toLowerCase() === newCategory.toLowerCase()
-    )
+    );
   }
 
 }
