@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { CallbackComponent } from './callback/callback.component';
 import { ProductResolveService } from './detail-card/product-resolve.service';
 import { CallToActionComponent } from './call-to-action/call-to-action.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CallToActionComponent } from './call-to-action/call-to-action.component
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ProductsService, AuthService, ProductResolveService],
   bootstrap: [AppComponent]
