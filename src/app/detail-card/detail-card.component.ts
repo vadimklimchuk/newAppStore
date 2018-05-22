@@ -23,7 +23,7 @@ export class DetailCardComponent implements OnInit {
   }
 
   getProduct(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = +this.route.snapshot.paramMap.get('id') - 1;
     this.productsService.getProduct(id).subscribe(product => {
       this.product = product;
     });
