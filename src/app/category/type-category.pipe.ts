@@ -9,6 +9,7 @@ export class TypeCategoryPipe implements PipeTransform {
   transform(products: Product[], newCategory?: string): Product[] {
     if (!newCategory) {
       newCategory = 'Category 1';
+      return;
     }
 
     return products.filter(product =>
