@@ -11,6 +11,7 @@ import { LocalStorageService } from '../local-storage.service';
 export class HomeComponent implements OnInit {
   public profile: any;
   public formModel: FormGroup;
+  
   public backgoundColors = [
     {color: '#343A40', name: 'Dark'},
     {color: '#F0F1F2', name: 'Light'},

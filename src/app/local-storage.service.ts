@@ -3,11 +3,6 @@ import { Subject } from "rxjs/Subject";
 
 @Injectable()
 export class LocalStorageService {
-  callToActionSubject = new Subject();
-  adminThemeSubject = new Subject();
-  adminBgSubject = new Subject();
-
-  constructor() { }
 
   setLocaleStorageBg(formModel) {
     localStorage.setItem('bg', JSON.stringify(formModel.value.background));
@@ -19,5 +14,28 @@ export class LocalStorageService {
 
   setLocaleStorageCallTo(formModel) {
     localStorage.setItem('callTo', JSON.stringify(formModel.value.action));
+  }
+
+  getBackground() {
+    const storageBg = localStorage.getItem('bg');
+    const bg = JSON.parse(storageBg);
+
+    if (bg !== null) {
+      return bg;
+    }
+  }
+
+  getViewDashboard() {
+    const storageDashboard = localStorage.getItem('view');
+    const view = JSON.parse(storageDashboard);
+
+    if (view !== null && view === 'list') {
+      return view;
+    }
+  }
+
+  getCTA() {
+    const action = JSON.parse(localStorage.getItem('callTo'));
+    return JSON.parse(action || action !== null);
   }
 }

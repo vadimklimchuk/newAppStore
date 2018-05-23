@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-call-to-action',
@@ -6,17 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./call-to-action.component.css']
 })
 export class CallToActionComponent implements OnInit {
-  public callTo: string = 'true';
 
-  constructor() { }
+  constructor(public localStorage: LocalStorageService) { }
 
   ngOnInit() {
     this.getCTA();
   }
 
-  getCTA(): void {
-    const action = JSON.parse(localStorage.getItem('callTo'));
-    return JSON.parse(action || action !== null);
+  getCTA() {
+    return this.localStorage.getCTA();
   }
 }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Product } from '../model/product.model';
 import { ProductsService } from '../model/products.service';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,9 +13,10 @@ export class DashboardComponent implements OnInit {
   public products: Product[] = [];
 
   public list: string = null;
-  public bgDash = 'white';
+  public bgDash = "#F0F1F2";
 
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService,
+              private localStorage: LocalStorageService) { }
 
   ngOnInit() {
     this.getProducts();
@@ -28,20 +30,10 @@ export class DashboardComponent implements OnInit {
   }
 
   getBackground(): void {
-    const storageBg = localStorage.getItem('bg');
-    const bg = JSON.parse(storageBg);
-
-    if (bg !== null) {
-      this.bgDash = bg;
-    }
+    this.bgDash = this.localStorage.getBackground();
   }
 
   getViewDashboard(): void {
-    const storageDashboard = localStorage.getItem('view');
-    const view = JSON.parse(storageDashboard);
-
-    if (view !== null && view === 'list') {
-      this.list = view;
-    }
+    this.list = this.localStorage.getViewDashboard();
   }
 }
