@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
   ];
 
   constructor(public auth: AuthService,
+              public localStorage: LocalStorageService,
               private fb: FormBuilder) {
 
   }
@@ -47,15 +49,15 @@ export class HomeComponent implements OnInit {
   }
 
   setLocaleStorageBg() {
-    localStorage.setItem('bg', JSON.stringify(this.formModel.value.background));
+    this.localStorage.setLocaleStorageBg(this.formModel);
   }
 
   setLocaleStorageView() {
-    localStorage.setItem('view', JSON.stringify(this.formModel.value.viewDashboard));
+    this.localStorage.setLocaleStorageView(this.formModel);
   }
 
   setLocaleStorageCallTo() {
-    localStorage.setItem('callTo', JSON.stringify(this.formModel.value.action));
+    this.localStorage.setLocaleStorageCallTo(this.formModel);
   }
 
 }
