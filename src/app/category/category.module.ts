@@ -4,6 +4,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { StoreComponent } from './category.component';
 import { ProductsService } from '../model/products.service';
 import { TypeCategoryPipe } from './type-category.pipe';
+import { DetailCardModule } from '../detail-card/detail-card.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { TypeCategoryPipe } from './type-category.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DetailCardModule
   ],
   providers: [ProductsService]
 })

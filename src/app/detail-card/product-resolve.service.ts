@@ -30,6 +30,7 @@ export class ProductResolveService implements Resolve<Product> {
         return currentProduct;
       })
       .catch(() => {
+        alert('there is no such product')
         this.router.navigate(['dashboard']);
         return Observable.of(null);
       });
