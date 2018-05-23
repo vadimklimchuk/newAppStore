@@ -11,19 +11,31 @@ import { LocalStorageService } from '../local-storage.service';
 export class HomeComponent implements OnInit {
   public profile: any;
   public formModel: FormGroup;
-  public green: string = '12423rfs'
+  public backgoundColors = [
+    {color: '#343A40', name: 'Dark'},
+    {color: '#F0F1F2', name: 'Light'},
+    {color: '#17a2b8', name: 'Turquoise'}
+  ];
+  public viewDashboard = [
+    {value: 'block', name: 'Block'},
+    {value: 'list', name: 'List'}
+  ];
+  public callToAction = [
+    {value: 'true', name: 'Display'},
+    {value: 'false', name: 'Not display'}
+  ];
 
-  constructor(public authService: AuthService,
+  constructor(public auth: AuthService,
               public localStorage: LocalStorageService,
               private fb: FormBuilder) {
 
   }
 
   ngOnInit() {
-    if (this.authService.userProfile) {
-      this.profile = this.authService.userProfile;
+    if (this.auth.userProfile) {
+      this.profile = this.auth.userProfile;
     } else {
-      this.authService.getProfile((err, profile) => {
+      this.auth.getProfile((err, profile) => {
         this.profile = profile;
       });
     }

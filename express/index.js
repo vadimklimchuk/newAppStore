@@ -14,6 +14,7 @@ app.get('/data', (request, response) => {
     response.set('Content-type', 'application/json;charset=utf-8')
         .sendFile(__dirname + '/file.json');
 });
+
 app.get("*", (req, res, next) => {
     res.sendFile(path.join(__dirname, '/dist/index.html'));
 });
