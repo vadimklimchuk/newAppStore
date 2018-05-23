@@ -6,22 +6,22 @@
     <div class="container-fluid d-flex justify-content-end">
         <form class="form-inline">
           <button class="btn btn-info my-sm-0 mr-2"
-            *ngIf="auth.isAuthenticated()"
+            *ngIf="authService.isAuthenticated()"
             routerLink="/home" type="button">
               Home
           </button>
   
           <button id="qsLoginBtn"
             class="btn btn-info my-sm-0"
-            *ngIf="!auth.isAuthenticated()"
-            (click)="auth.login()" type="button">
+            *ngIf="!authService.isAuthenticated()"
+            (click)="authService.login()" type="button">
               Log In
           </button>
   
           <button id="qsLogoutBtn"
             class="btn btn-info my-2 my-sm-0"
-            *ngIf="auth.isAuthenticated()"
-            (click)="auth.logout()" type="button">
+            *ngIf="authService.isAuthenticated()"
+            (click)="authService.logout()" type="button">
               Log Out
           </button>
         </form>

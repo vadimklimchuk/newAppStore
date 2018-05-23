@@ -1,4 +1,4 @@
-<h4 *ngIf="auth.isAuthenticated()">
+<h4 *ngIf="authService.isAuthenticated()">
   <div *ngIf="profile">Hello {{profile.name}}. You can to change some styles</div>
   <div class="forms" [formGroup]="formModel">
     <div class="block">
@@ -37,6 +37,6 @@
   </div>
 </h4>
 
-<h4 *ngIf="!auth.isAuthenticated()">
+<h4 *ngIf="!authService.isAuthenticated()">
   You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
 </h4>

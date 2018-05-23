@@ -10,17 +10,18 @@ import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms'
 export class HomeComponent implements OnInit {
   public profile: any;
   public formModel: FormGroup;
+  public green: string = '12423rfs'
 
-  constructor(public auth: AuthService,
+  constructor(public authService: AuthService,
               private fb: FormBuilder) {
 
   }
 
   ngOnInit() {
-    if (this.auth.userProfile) {
-      this.profile = this.auth.userProfile;
+    if (this.authService.userProfile) {
+      this.profile = this.authService.userProfile;
     } else {
-      this.auth.getProfile((err, profile) => {
+      this.authService.getProfile((err, profile) => {
         this.profile = profile;
       });
     }

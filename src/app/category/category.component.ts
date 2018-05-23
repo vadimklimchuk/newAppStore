@@ -11,14 +11,12 @@ export class StoreComponent implements OnInit {
   public selectedCategory: string = 'Category 1';
   public products: Product[] = [];
 
-  // public menuCategories: Set<string> = new Set();
   public menuCategories = ['Category 1', 'Category 2', 'Category 3', 'Category 4'];
 
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
     this.getProducts();
-    // this.getCategories();
   }
 
   getProducts(): void {
@@ -27,12 +25,6 @@ export class StoreComponent implements OnInit {
         this.products = products;
       });
   }
-
-  // getCategories() {
-  //   for (const i of this.products) {
-  //     this.menuCategories.add(i.category);
-  //   }
-  // }
 
   changeCategory(newCategory?: string): void {
     this.selectedCategory = newCategory;
