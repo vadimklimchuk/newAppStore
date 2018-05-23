@@ -1,4 +1,8 @@
-# RunNPM
+## Run ExpressServer
+
+Go to the directory express/ and run `npm install`, then run `node index.js`.
+
+## RunNPM
 
 Run `npm install` for install packages.
 
