@@ -6,7 +6,7 @@ import { PRODUCTS } from './static.datasource';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { catchError, map, tap,filter } from 'rxjs/operators';
+import { catchError, map, tap, filter } from 'rxjs/operators';
 
 @Injectable()
 export class ProductsService {

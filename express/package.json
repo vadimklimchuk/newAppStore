@@ -3,7 +3,8 @@
   "version": "",
   "main": "index.js",
   "engines": {
-    "node": "8.9.1"
+    "node": "8.9.1",
+    "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "1.17.1",

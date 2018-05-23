@@ -10,6 +10,11 @@ import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms'
 export class HomeComponent implements OnInit {
   public profile: any;
   public formModel: FormGroup;
+  public backgoundColors = [
+    {color: '#343A40', name: 'Dark'},
+    {color: '#F0F1F2', name: 'Light'},
+    {color: '#17a2b8', name: 'Turquoise'}
+  ];
 
   constructor(public auth: AuthService,
               private fb: FormBuilder) {

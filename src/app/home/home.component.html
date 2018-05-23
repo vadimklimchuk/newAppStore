@@ -3,11 +3,14 @@
   <div class="forms" [formGroup]="formModel">
     <div class="block">
       <span>Select background for the Dashboard page</span>
-      <select class="form-control" name="background" formControlName="background">
+      <select class="form-control" formControlName="background">
         <option value="" selected disabled hidden>Choose here</option>
-        <option value="#343A40">Dark</option>
-        <option value="#F0F1F2">Light</option>
-        <option value="#17a2b8">Turquoise</option>
+        <option *ngFor="let background of backgoundColors" [ngValue]="background">
+          {{ background.color }}
+        </option>
+        <!--<option value="#343A40">Dark</option>-->
+        <!--<option value="#F0F1F2">Light</option>-->
+        <!--<option value="#17a2b8">Turquoise</option>-->
       </select>
       <input type="submit" value="Accept"
     (click)='setLocaleStorageBg()'>
