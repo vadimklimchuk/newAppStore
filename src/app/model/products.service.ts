@@ -14,10 +14,6 @@ export class ProductsService {
   constructor(private http: HttpClient) {
   }
 
-  // getProducts(): Observable<any> {
-  //   return of(PRODUCTS);
-  // }
-
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.url);
   }
@@ -28,8 +24,4 @@ export class ProductsService {
         map(item => item[id])
       )
   }
-
-  // getProduct(id: number): Observable<Product> {
-  //   return of(PRODUCTS.find(product => product.id === id));
-  // }
 }
