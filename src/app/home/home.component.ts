@@ -15,6 +15,14 @@ export class HomeComponent implements OnInit {
     {color: '#F0F1F2', name: 'Light'},
     {color: '#17a2b8', name: 'Turquoise'}
   ];
+  public viewDashboard = [
+    {value: 'block', name: 'Block'},
+    {value: 'list', name: 'List'}
+  ];
+  public callToAction = [
+    {value: 'true', name: 'Display'},
+    {value: 'false', name: 'Not display'}
+  ];
 
   constructor(public auth: AuthService,
               private fb: FormBuilder) {

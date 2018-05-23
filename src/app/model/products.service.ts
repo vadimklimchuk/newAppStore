@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Product } from './product.model';
-import { PRODUCTS } from './static.datasource';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -10,7 +9,7 @@ import { catchError, map, tap, filter } from 'rxjs/operators';
 
 @Injectable()
 export class ProductsService {
-  public url = 'http://localhost:5000/data';
+  public url = 'https://herokuappdtore.herokuapp.com/data';
 
   constructor(private http: HttpClient) {
   }

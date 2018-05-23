@@ -9,8 +9,8 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent implements OnInit {
   public title = 'App Store';
 
-  constructor(public auth: AuthService) {
-    auth.handleAuthentication();
+  constructor(public authService: AuthService) {
+    authService.handleAuthentication();
   }
 
   ngOnInit() {
