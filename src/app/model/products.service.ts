@@ -23,16 +23,14 @@ export class ProductsService {
     return this.http.get<Product[]>(this.url);
   }
 
-  // getProduct(id: number): Observable<Product> {
-  //   return this.http.get<Product>(this.url)
-  //     .pipe(
-  //       map(res => res),
-  //       tap(res => res.id = id)
-  //     )
-      
-  // }
-
   getProduct(id: number): Observable<Product> {
-    return of(PRODUCTS.find(product => product.id === id));
+    return this.http.get<Product>(this.url)
+      .pipe(
+        map(item => item[id])
+      )
   }
+
+  // getProduct(id: number): Observable<Product> {
+  //   return of(PRODUCTS.find(product => product.id === id));
+  // }
 }
