@@ -15,11 +15,11 @@ app.get('/data', (request, response) => {
         .sendFile(__dirname + '/file.json');
 })
 
-// app.get('/[^\.]+$', function(req, res) {
-//     console.log('kk');
-//     res.set('Content-type', 'text-html')
-//         .sendFile(path.join(__dirname, '/dist/index.html'))
-// });
+app.get('/[^\.]+$', function(req, res) {
+    console.log('kk');
+    res.set('Content-type', 'text-html')
+        .sendFile(path.join(__dirname, '/dist/index.html'))
+});
 
 app.listen(app.get('port'), function () {
     console.log("Node app running is localhost:" + app.get('port'));
