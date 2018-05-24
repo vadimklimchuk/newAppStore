@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AuthService } from './auth/auth.service';
@@ -10,7 +9,6 @@ import { CallToActionComponent } from './call-to-action/call-to-action.component
 
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { CategoryModule } from './category/category.module';
 import { HomeModule } from './home/home.module';
 
 
@@ -22,11 +20,9 @@ import { HomeModule } from './home/home.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
     DashboardModule,
-    CategoryModule,
-    HomeModule
+    HomeModule,
+    AppRoutingModule
   ],
   providers: [AuthService, LocalStorageService],
   bootstrap: [AppComponent]
