@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AuthService } from './auth/auth.service';
-import { LocalStorageService } from './local-storage.service';
 import { CallbackComponent } from './callback/callback.component';
 import { CallToActionComponent } from './call-to-action/call-to-action.component';
 
@@ -32,7 +31,7 @@ import { environment } from '../environments/environment';
     LocalStorageService,
     LocalStorageAuthService,
     {provide: 'baseUrl', useValue: environment.baseUrl}
-  ], 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
