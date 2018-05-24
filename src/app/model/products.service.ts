@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Product } from './product.model';
@@ -8,17 +8,17 @@ import { catchError, map, tap, filter } from 'rxjs/operators';
 
 @Injectable()
 export class ProductsService {
-  public url = 'https://herokuappdtore.herokuapp.com/data';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              @Inject('baseUrl') private _baseUrl: string) {
   }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.url);
+    return this.http.get<Product[]>(`${this._baseUrl}/data`);
   }
 
   getProduct(id: number): Observable<Product> {
-    return this.http.get<Product>(this.url)
+    return this.http.get<Product>(`${this._baseUrl}/data`)
       .pipe(
         map(item => item[id])
       );

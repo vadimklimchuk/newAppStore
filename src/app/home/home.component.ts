@@ -26,17 +26,17 @@ export class HomeComponent implements OnInit {
     {value: 'false', name: 'Not display'}
   ];
 
-  constructor(public auth: AuthService,
+  constructor(public authService: AuthService,
               public localStorage: LocalStorageService,
               private fb: FormBuilder) {
 
   }
 
   ngOnInit() {
-    if (this.auth.userProfile) {
-      this.profile = this.auth.userProfile;
+    if (this.authService.userProfile) {
+      this.profile = this.authService.userProfile;
     } else {
-      this.auth.getProfile((err, profile) => {
+      this.authService.getProfile((err, profile) => {
         this.profile = profile;
       });
     }
