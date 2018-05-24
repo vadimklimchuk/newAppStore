@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth/shared/auth.service';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { LocalStorageService } from '../local-storage.service';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { LocalStorageService } from '../local-storage.service';
 export class HomeComponent implements OnInit {
   public profile: any;
   public formModel: FormGroup;
-  
+
   public backgoundColors = [
     {color: '#343A40', name: 'Dark'},
     {color: '#F0F1F2', name: 'Light'},

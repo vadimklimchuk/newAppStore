@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from './core/auth/shared/auth.service';
 
 @Component({
@@ -6,14 +6,10 @@ import { AuthService } from './core/auth/shared/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public title = 'App Store';
 
   constructor(public authService: AuthService) {
     authService.handleAuthentication();
   }
-
-  ngOnInit() {
-  }
-
 }

@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Product } from "../../shared/product.model";
-import { ProductsService } from '../../shared/products.service';
+import { ProductsService } from '../../../services/products.service';
 
 @Component({
   selector: 'app-detail-card',

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../shared/product.model';
 import { Observable } from 'rxjs/Observable';
-import {ProductsService} from '../../shared/products.service';
+import {ProductsService} from '../../../services/products.service';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -30,7 +30,8 @@ export class ProductResolveService implements Resolve<Product> {
         return currentProduct;
       })
       .catch(() => {
-        alert('there is no such product')
+        console.error('There is no such product');
+        alert('There is no such product');
         this.router.navigate(['dashboard']);
         return Observable.of(null);
       });

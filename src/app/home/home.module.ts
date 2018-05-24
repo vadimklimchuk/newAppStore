@@ -5,8 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { LocalStorageService } from '../local-storage.service';
-import { AuthGuardService } from './auth-guard.service';
+import { LocalStorageService } from '../services/local-storage.service';
+import { AuthGuardService } from '../services/auth-guard.service';
 
 
 @NgModule({

@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { StoreComponent } from './category.component';
 import { TypeCategoryPipe } from './type-category.pipe';
-import { ProductsService } from '../../shared/products.service';
+import { ProductsService } from '../../../services/products.service';
 
 const routes: Routes = [
   {

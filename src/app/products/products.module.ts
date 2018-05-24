@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ProductsService } from './shared/products.service';
+import { ProductsService } from '../services/products.service';
 import { ProductResolveService } from './pages/detail-card/product-resolve.service';
 import { DetailCardComponent } from './pages/detail-card/detail-card.component';
 import { TypeCategoryPipe } from './pages/category/type-category.pipe';
