@@ -13,6 +13,7 @@ import { CategoryModule } from './category/category.module';
 import { HomeModule } from './home/home.module';
 import { DetailCardModule } from './detail-card/detail-card.module';
 import { LocalStorageService } from './local-storage.service';
+import { LocalStorageAuthService } from './auth/local-storage-auth.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { LocalStorageService } from './local-storage.service';
     HomeModule,
     DetailCardModule
   ],
-  providers: [AuthService, LocalStorageService],
+  providers: [AuthService, LocalStorageService, LocalStorageAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
