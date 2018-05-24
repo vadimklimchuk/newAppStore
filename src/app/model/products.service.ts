@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Product } from './product.model';
 
 import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
 import { catchError, map, tap, filter } from 'rxjs/operators';
 
 @Injectable()
