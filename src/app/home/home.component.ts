@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/auth.service';
+import { AuthService } from '../core/auth/shared/auth.service';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { LocalStorageService } from '../../../local-storage.service';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-home',

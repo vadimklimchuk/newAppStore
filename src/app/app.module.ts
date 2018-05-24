@@ -8,6 +8,7 @@ import { LocalStorageService } from './local-storage.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './core/auth/auth.module';
 import { ProductsModule } from './products/products.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import { ProductsModule } from './products/products.module';
   imports: [
     BrowserModule,
     ProductsModule,
-    AppRoutingModule,
-    AuthModule
+    AuthModule,
+    HomeModule,
+    AppRoutingModule
   ],
   providers: [LocalStorageService], 
   bootstrap: [AppComponent]
