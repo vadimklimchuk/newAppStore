@@ -2,33 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AuthService } from './shared/auth/auth.service';
 import { LocalStorageService } from './local-storage.service';
-import { CallbackComponent } from './shared/callback/callback.component';
-import { CallToActionComponent } from './shared/call-to-action/call-to-action.component';
+import { CallToActionComponent } from './call-to-action/call-to-action.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { DashboardModule } from './shared/dashboard/dashboard.module';
-import { HomeModule } from './shared/home/home.module';
-import { LocalStorageAuthService } from './shared/auth/local-storage-auth.service';
 import { environment } from '../environments/environment';
+import { AuthModule } from './core/auth/auth.module';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CallbackComponent,
     CallToActionComponent
   ],
   imports: [
     BrowserModule,
-    DashboardModule,
-    HomeModule,
-    AppRoutingModule
+    ProductsModule,
+    AppRoutingModule,
+    AuthModule
   ],
   providers: [
-    AuthService,
     LocalStorageService,
-    LocalStorageAuthService,
     {provide: 'baseUrl', useValue: environment.baseUrl}
   ], 
   bootstrap: [AppComponent]
