@@ -22,6 +22,6 @@ export class ProductsService {
     return this.http.get<Product>(`${this._baseUrl}/data`)
       .pipe(
         map(item => item[id])
-      )
+      );
   }
 }

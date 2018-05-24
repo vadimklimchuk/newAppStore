@@ -10,8 +10,10 @@ import { CallToActionComponent } from './call-to-action/call-to-action.component
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { HomeModule } from './home/home.module';
+import { DetailCardModule } from './detail-card/detail-card.module';
+import { LocalStorageService } from './local-storage.service';
+import { LocalStorageAuthService } from './auth/local-storage-auth.service';
 import { environment } from '../environments/environment';
-
 
 @NgModule({
   declarations: [
@@ -28,8 +30,9 @@ import { environment } from '../environments/environment';
   providers: [
     AuthService,
     LocalStorageService,
+    LocalStorageAuthService,
     {provide: 'baseUrl', useValue: environment.baseUrl}
-  ],
+  ], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
