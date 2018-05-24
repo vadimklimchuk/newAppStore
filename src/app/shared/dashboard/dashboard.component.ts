@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Product } from '../model/product.model';
-import { ProductsService } from '../model/products.service';
-import { LocalStorageService } from '../local-storage.service';
+import { Product } from '../../model/product.model';
+import { ProductsService } from '../../model/products.service';
+import { LocalStorageService } from '../../local-storage.service';
 
 @Component({
   selector: 'app-dashboard',

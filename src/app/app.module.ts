@@ -2,14 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AuthService } from './auth/auth.service';
+import { AuthService } from './shared/auth/auth.service';
 import { LocalStorageService } from './local-storage.service';
-import { CallbackComponent } from './callback/callback.component';
-import { CallToActionComponent } from './call-to-action/call-to-action.component';
+import { CallbackComponent } from './shared/callback/callback.component';
+import { CallToActionComponent } from './shared/call-to-action/call-to-action.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { HomeModule } from './home/home.module';
+import { DashboardModule } from './shared/dashboard/dashboard.module';
+import { HomeModule } from './shared/home/home.module';
 import { environment } from '../environments/environment';
 
 

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, Router } from '@angular/router';
-import { Product } from '../model/product.model';
+import { Product } from '../../model/product.model';
 import { Observable } from 'rxjs/Observable';
-import {ProductsService} from '../model/products.service';
+import {ProductsService} from '../../model/products.service';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
