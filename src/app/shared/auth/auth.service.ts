@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AUTH_CONFIG } from './auth0-variables';
+import { AUTH_CONFIG, LOGOUT_CONFIG } from './auth0-variables';
 import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
+import { LocalStorageAuthService } from './local-storage-auth.service';
 
 @Injectable()
 export class AuthService {
@@ -16,10 +17,11 @@ export class AuthService {
     scope: 'openid profile'
   });
 
-  constructor(public router: Router) { }
+  constructor(public router: Router,
+              private localStorageAuth: LocalStorageAuthService) { }
 
   public getProfile(cb): void {
-    const accessToken = localStorage.getItem('access_token');
+    const accessToken = localStorage.getItem(LOGOUT_CONFIG.accessToken);
     if (!accessToken) {
       throw new Error('Access Token must exist to fetch profile');
     }
@@ -51,28 +53,15 @@ export class AuthService {
   }
 
   private setSession(authResult): void {
-    // Set the time that the access token will expire at
-    const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
-    localStorage.setItem('access_token', authResult.accessToken);
-    localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('expires_at', expiresAt);
-    // localStorage.setItem('profile', JSON.stringify(authResult));
+    this.localStorageAuth.setSession(authResult);
   }
 
-  public logout(): void {
-    // Remove tokens and expiry time from localStorage
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
-    // Go back to the home route
-    this.router.navigate(['/']);
+  logout(): void {
+    this.localStorageAuth.logout();
   }
 
-  public isAuthenticated(): boolean {
-    // Check whether the current time is past the
-    // access token's expiry time
-    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-    return new Date().getTime() < expiresAt;
+  isAuthenticated(): boolean {
+    return this.localStorageAuth.isAuthenticated();
   }
-
 }
+
