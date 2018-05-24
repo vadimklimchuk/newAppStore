@@ -10,6 +10,7 @@ import { CallToActionComponent } from './call-to-action/call-to-action.component
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { HomeModule } from './home/home.module';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -24,7 +25,11 @@ import { HomeModule } from './home/home.module';
     HomeModule,
     AppRoutingModule
   ],
-  providers: [AuthService, LocalStorageService],
+  providers: [
+    AuthService,
+    LocalStorageService,
+    {provide: 'baseUrl', useValue: environment.baseUrl}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
