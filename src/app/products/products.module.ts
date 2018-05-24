@@ -4,11 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ProductsService } from './shared/products.service';
+import { ProductResolveService } from './components/detail-card/product-resolve.service';
 import { DetailCardComponent } from './components/detail-card/detail-card.component';
 import { TypeCategoryPipe } from './pages/category/type-category.pipe';
-import { ProductResolveService } from './components/detail-card/product-resolve.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { environment } from '../../environments/environment';
 
 
 
@@ -23,6 +24,10 @@ import { AppRoutingModule } from '../app-routing.module';
     DashboardComponent,
     DetailCardComponent
   ],
-  providers: [ProductsService, ProductResolveService]
+  providers: [
+    ProductsService,
+    ProductResolveService,
+    {provide: 'baseUrl', useValue: environment.baseUrl}
+  ]
 })
 export class ProductsModule { }
