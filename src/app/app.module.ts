@@ -10,7 +10,7 @@ import { CallToActionComponent } from './shared/call-to-action/call-to-action.co
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './shared/dashboard/dashboard.module';
 import { HomeModule } from './shared/home/home.module';
-import { LocalStorageAuthService } from './auth/local-storage-auth.service';
+import { LocalStorageAuthService } from './shared/auth/local-storage-auth.service';
 import { environment } from '../environments/environment';
 
 @NgModule({
