@@ -11,13 +11,13 @@ export class StoreComponent implements OnInit {
   public selectedCategory: string = 'Category 1';
   public products: Product[] = [];
 
-  public menuCategories = ['Category 1', 'Category 2', 'Category 3', 'Category 4'];
+  public menuCategories: Array<string> = ['Category 1', 'Category 2', 'Category 3', 'Category 4'];
 
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
     this.getProducts();
-  }
+  }  
 
   getProducts(): void {
     this.productsService.getProducts()
