@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.authService);
     if (this.authService.userProfile) {
       this.profile = this.authService.userProfile;
     } else {
