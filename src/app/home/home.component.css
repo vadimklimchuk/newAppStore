@@ -2,11 +2,15 @@
     margin-top: 60px;
 }
 
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 img {
   border-radius: 50%;
   height: 100px;
   min-height: 70px;
-  float: left;
   margin: 10px;
 }
 
@@ -57,4 +61,10 @@ input:hover {
 }
 input:active {
     background: #042924;
+}
+
+@media (max-width: 528px) {
+  img, div, span {
+    margin: 10px auto;
+  }
 }

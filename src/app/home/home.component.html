@@ -1,6 +1,8 @@
 <h4>
-  <img *ngIf="profile" src="{{profile.picture}}" alt="profile picture" />
-  <div *ngIf="profile" class="welcome">Hello {{profile.name}}. <br>You can to change some styles</div>
+  <div *ngIf="profile" class="profile">
+    <img src="{{profile.picture}}" alt="profile picture" />
+    <div class="welcome">Hello {{profile.name}}. <br>You can to change some styles</div>
+  </div>
   <div class="forms" [formGroup]="formModel">
 
     <div class="block">
