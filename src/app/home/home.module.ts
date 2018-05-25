@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+
 import { HomeComponent } from './home.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LocalStorageService } from '../services/local-storage.service';
+import { AuthGuardService } from '../services/auth-guard.service';
+
 
 @NgModule({
   imports: [
-    BrowserModule,
-    AppRoutingModule,
+    CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent],
+  providers: [LocalStorageService, AuthGuardService]
 })
 export class HomeModule { }

@@ -1,5 +1,5 @@
 .callTo {
-    position: fixed;
+    position: relative;
     bottom: 0;
-    right: 0;
+    right: calc(50% - 171px);
 }

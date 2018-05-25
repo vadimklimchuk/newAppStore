@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Product } from "../model/product.model";
-import { ProductsService } from '../model/products.service';
+import { Product } from "../../shared/product.model";
+import { ProductsService } from '../../../services/products.service';
 
 @Component({
   selector: 'app-detail-card',
