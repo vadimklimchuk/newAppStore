@@ -3,7 +3,8 @@
 }
 
 .profile {
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 img {
@@ -62,3 +63,8 @@ input:active {
     background: #042924;
 }
 
+@media (max-width: 528px) {
+  img, div, span {
+    margin: 10px auto;
+  }
+}
