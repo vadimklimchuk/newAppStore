@@ -25,5 +25,5 @@ This is a link to github repository `https://github.com/vadimklimchuk/newAppStor
 
 ## Hosting
 
-This is a link to hosting `https://appstore-8d742.firebaseapp.com`.
+This is a link to hosting `https://herokuappdtore.herokuapp.com/dashboard`.
 
