@@ -2,11 +2,14 @@
     margin-top: 60px;
 }
 
+.profile {
+    display: flex;
+}
+
 img {
   border-radius: 50%;
   height: 100px;
   min-height: 70px;
-  float: left;
   margin: 10px;
 }
 
@@ -58,3 +61,4 @@ input:hover {
 input:active {
     background: #042924;
 }
+
