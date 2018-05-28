@@ -14,4 +14,5 @@ import { CallbackComponent } from './callback/callback.component';
     LocalStorageAuthService
   ]
 })
+
 export class AuthModule { }
