@@ -34,3 +34,20 @@
   cursor: pointer;
   transition: 0.25s;
 }
+
+.card-text {
+    display: flex;
+    justify-content: center;
+}
+
+.card-text button {
+    padding: 5px 10px;
+    background: #f8f9fa;
+    color: Black;
+    width: 100%;
+}
+
+.card-text button:hover, .card-text button:focus {
+    outline: none;
+    border: none;
+}

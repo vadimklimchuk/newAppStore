@@ -1,0 +1,17 @@
+small {
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    height: 38px;
+    margin-right: 10px;
+    background: #17a2b8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 6px;
+}
+
+small:hover {
+    opacity: 0.8;
+}

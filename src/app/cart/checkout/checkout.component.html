@@ -1,0 +1,23 @@
+<div *ngIf="submit; else forms" class="success">
+  <h2>Thanks!</h2>
+  <p>Thanks for placing your order.</p>
+  <p>We'll ship your goods as soon as possible.</p>
+  <button class="btn btn-primary" (click)="navCategory()">Return to Store</button>
+</div>
+
+<ng-template #forms>
+  <div class="block-input" [formGroup]="formModel">
+    <input type="text" formControlName="firstName" placeholder="first name">
+    <input type="text" formControlName="lastName" placeholder="last name">
+    <input type="email" formControlName="email" placeholder="email">
+    <input type="text" formControlName="country" placeholder="country">
+    <input type="text" formControlName="city" placeholder="city">
+    <input type="text" formControlName="address" placeholder="address">
+    <input type="text" formControlName="zipCode" placeholder="zipCode">
+  </div>
+  <div class="button">
+    <button class="btn btn-primary" type="submit" (click)="checking()">Complete Order</button>
+  </div>
+</ng-template>
+
+
