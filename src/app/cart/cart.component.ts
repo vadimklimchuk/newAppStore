@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CartComponent {
 
-  constructor(private cart: CartService,
+  constructor(private cartService: CartService,
               private router: Router) { }
 
   continueShop() {

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { Product } from '../products/shared/product.model';
 
 @Injectable()
@@ -41,7 +42,7 @@ export class CartService {
         this.cartPrice = 0;
   }
 
-  private recalculate() {
+  public recalculate() {
         this.itemCount = 0;
         this.cartPrice = 0;
         this.lines.forEach(l => {

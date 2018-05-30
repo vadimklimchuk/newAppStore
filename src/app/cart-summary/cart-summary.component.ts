@@ -8,5 +8,5 @@ import { CartService } from '../services/cart.service';
 })
 export class CartSummaryComponent {
 
-  constructor(private cart: CartService) { }
+  constructor(private cartService: CartService) { }
 }
