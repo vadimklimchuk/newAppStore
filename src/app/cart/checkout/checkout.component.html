@@ -2,22 +2,65 @@
   <h2>Thanks!</h2>
   <p>Thanks for placing your order.</p>
   <p>We'll ship your goods as soon as possible.</p>
-  <button class="btn btn-primary" (click)="navCategory()">Return to Store</button>
+  <button class="btn btn-primary" (click)="navCategory()">Return to Category</button>
 </div>
 
 <ng-template #forms>
   <div class="block-input" [formGroup]="formModel">
-    <input type="text" formControlName="firstName" placeholder="first name">
-    <input type="text" formControlName="lastName" placeholder="last name">
-    <input type="email" formControlName="email" placeholder="email">
-    <input type="text" formControlName="country" placeholder="country">
-    <input type="text" formControlName="city" placeholder="city">
-    <input type="text" formControlName="address" placeholder="address">
-    <input type="text" formControlName="zipCode" placeholder="zipCode">
+    <div>
+      <input type="text" formControlName="firstName" placeholder="first name">
+      <span *ngIf="!submit && formModel.get('firstName').invalid" class="text-danger">
+        Please enter your firstName
+      </span>
+    </div>
+    <div>
+      <input type="text" formControlName="lastName" placeholder="last name">
+      <span *ngIf="!submit && formModel.get('lastName').invalid" class="text-danger">
+        Please enter your lastName
+      </span>
+    </div>
+    <div>
+      <input type="email" formControlName="email" placeholder="email">
+      <span *ngIf="!submit && formModel.get('email').invalid" class="text-danger">
+        Please enter your email
+      </span>
+    </div>
+    <div>
+      <input type="text" formControlName="country" placeholder="country">
+      <span *ngIf="!submit && formModel.get('country').invalid" class="text-danger">
+        Please enter your country
+      </span>
+    </div>
+    <div>
+      <input type="text" formControlName="city" placeholder="city">
+      <span *ngIf="!submit && formModel.get('city').invalid" class="text-danger">
+         Please enter your city
+      </span>
+    </div>
+    <div>
+      <input type="text" formControlName="address" placeholder="address">
+      <span *ngIf="!submit && formModel.get('address').invalid" class="text-danger">
+        Please enter your address
+      </span>
+    </div>
+    <div>
+      <input type="text" formControlName="zipCode" placeholder="zipCode">
+      <span *ngIf="!submit && formModel.get('zipCode').invalid" class="text-danger">
+        Please enter your zipCode
+      </span>
+    </div>
   </div>
   <div class="button">
     <button class="btn btn-primary" type="submit" (click)="checking()">Complete Order</button>
   </div>
 </ng-template>
+
+<pre>
+  {{formModel.value | json}}
+</pre>
+{{formModel.valid}}
+{{formModel.get('firstName').valid}}
+{{formModel.get('lastName').valid}}
+{{formModel.get('country').valid}}
 
 

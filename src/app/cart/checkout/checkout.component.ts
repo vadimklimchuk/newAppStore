@@ -22,7 +22,7 @@ export class CheckoutComponent implements OnInit {
       lastName: ['',
         [Validators.required, Validators.minLength(4)]],
       email: ['',
-        [Validators.required, Validators.minLength(6)]],
+        [Validators.required, this.emailValidator]],
       country: ['',
         [Validators.required, Validators.minLength(3)]],
       city: ['',
@@ -32,13 +32,19 @@ export class CheckoutComponent implements OnInit {
       zipCode: ['',
         [Validators.required, Validators.minLength(3)]]
     });
-
+    console.log(this.formModel)
     this.checking();
   }
 
   public nameValidator(control: FormControl): { [key: string]: boolean } {
     const value = control.value || '';
-    const valid = /^[a-zA-Z]$/.test(value);
+    const valid = /^[a-zA-Zа-яА-Я]+$/.test(value);
+    return valid ? null : {nospecial: true};
+  }
+
+  public emailValidator(control: FormControl): { [key: string]: boolean } {
+    const value = control.value || '';
+    const valid = /.+@.+\..+/.test(value);
     return valid ? null : {nospecial: true};
   }
 
