@@ -1,0 +1,64 @@
+.block-input {
+    margin: 0 auto;
+    width: 60%;
+    margin-top: 40px;
+    position: relative;
+}
+
+.block-input div {
+    margin-bottom: 15px;
+    position: relative;
+}
+.block-input div span {
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+}
+
+span {
+    font-size: 13px;
+}
+
+.passwords-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.passwords-input input {
+    width: 45%;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: none;
+    margin-top: 20px;
+}
+
+input.ng-invalid {
+    transition: border-color .15s ease-in-out, box-shadow .2s ease-in-out;
+    box-shadow: 0 0 0.5rem rgba(248, 1, 1, 0.9);
+}
+
+input.ng-valid {
+    transition: border-color .15s ease-in-out, box-shadow .2s ease-in-out;
+    box-shadow: 0 0 1rem rgba(67, 206, 16, 0.8);
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.success {
+   width: 300px;
+   margin: 0 auto;
+   text-align: center;
+   margin-top: 100px;
+}

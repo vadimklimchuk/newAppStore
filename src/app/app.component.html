@@ -5,6 +5,7 @@
   <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid d-flex justify-content-end">
         <form class="form-inline">
+          <app-cart-summary *ngIf="authService.isAuthenticated()" class="busket"></app-cart-summary>
           <button class="btn btn-info my-sm-0 mr-2"
             *ngIf="authService.isAuthenticated()"
             routerLink="/home" type="button">

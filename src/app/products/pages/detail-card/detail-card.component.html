@@ -6,6 +6,12 @@
       <div><span>Category: </span>{{product.category}}</div>
       <div><span>Description: </span>{{product.description}}</div>
       <div><span>Price: </span>{{product.price}}</div>
+      <div *ngIf="authService.isAuthenticated()" class="card-text p-a-1">
+          <button class="btn btn-success btn-sm pull-xs-right"
+              (click)="addProductToCart(product)">
+                  Add To Cart
+          </button>
+      </div>
       <button (click)="goBack()" class="btn btn-light">Go back</button>
   </div>
 </div>

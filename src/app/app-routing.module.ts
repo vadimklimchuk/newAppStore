@@ -9,6 +9,8 @@ import { CallbackComponent } from './core/auth/callback/callback.component';
 import { ProductResolveService } from './products/pages/detail-card/product-resolve.service';
 import { CategoryModule } from './products/pages/category/category.module';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './cart/checkout/checkout.component';
 
 const lazyCategory = 'app/products/pages/category/category.module#CategoryModule';
 const lazyHome = 'app/home/home.module#HomeModule';
@@ -20,8 +22,10 @@ const routes: Routes = [
   { path: 'product/:id', component: DetailCardComponent, resolve: {
     product: ProductResolveService
   } },
+  { path: "cart", component: CartComponent, canActivate: [AuthGuard] },
+  { path: "checkout", component: CheckoutComponent, canActivate: [AuthGuard] },
   { path: 'callback', component: CallbackComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]  }
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
