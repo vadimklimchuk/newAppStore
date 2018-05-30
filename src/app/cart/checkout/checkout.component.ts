@@ -32,7 +32,6 @@ export class CheckoutComponent implements OnInit {
       zipCode: ['',
         [Validators.required, Validators.minLength(3)]]
     });
-    console.log(this.formModel)
     this.checking();
   }
 
