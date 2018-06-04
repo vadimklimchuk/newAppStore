@@ -45,3 +45,12 @@ h1:hover {
     color: bisque;
     padding-right: 20px;
 }
+
+.logged-out {
+    color: indianred;
+    padding-top: 20px;
+  }
+.logged-in {
+    color: forestgreen;
+    padding-top: 20px;
+}
