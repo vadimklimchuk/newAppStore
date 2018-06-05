@@ -1,15 +1,21 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ToastrService} from 'ngx-toastr';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class JwtAuthService {
 
   api = 'http://localhost:5000/api';
-  loggedIn = new BehaviorSubject<boolean>(false);
+  loggedIn: BehaviorSubject<boolean>;
   token;
   refreshToken;
+
+  constructor(
+    private http: HttpClient
+  ) {
+    const jwtToken = this.getToken();
+    this.loggedIn = new BehaviorSubject<boolean>(jwtToken ? true : false);
+  }
 
   getToken() {
     return localStorage.getItem('jwtToken');
@@ -33,13 +39,9 @@ export class JwtAuthService {
       this.loggedIn.next(true);
       this.token = resp.token;
       this.refreshToken = resp.refreshToken;
-      console.log(this.token);
-      console.log(resp.refreshToken)
       this.saveToken(resp.token);
-      this.toastr.success(resp && resp.user && resp.user.name ? `Welcome ${resp.user.name}` : 'Logged in!');
     }, (errorResp) => {
       this.loggedIn.next(undefined);
-      errorResp.error ? this.toastr.error(errorResp.error.errorMessage) : this.toastr.error('An unknown error has occured.');
     });
   }
 
@@ -47,10 +49,4 @@ export class JwtAuthService {
     this.destroyToken();
     this.loggedIn.next(false);
   }
-
-  constructor(
-    private http: HttpClient,
-    private toastr: ToastrService
-  ) { }
-
 }
