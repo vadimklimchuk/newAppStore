@@ -7,10 +7,9 @@ import { AppComponent } from './app.component';
 import { CallToActionComponent } from './call-to-action/call-to-action.component';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
-import { CartComponent } from './cart/cart.component';
-import { CartService } from './services/cart.service';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 import { JwtAuthService } from './services/jwt-auth.service';
+import { LocalStorageService } from './services/local-storage.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,7 @@ import { JwtAuthService } from './services/jwt-auth.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [JwtAuthService],
+  providers: [LocalStorageService, JwtAuthService],
   bootstrap: [AppComponent]
 })
 
