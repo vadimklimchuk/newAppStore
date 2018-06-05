@@ -34,10 +34,10 @@ const appUsers = {
       name: 'Vadim Klimchuk',
       pw: '1234'
     },
-  'akella1997@tut.by': {
-    name: 'Artsiom Pas',
-    pw: '1234'
-  }
+    'akella1997@tut.by': {
+      name: 'Artsiom Pas',
+      pw: '1234'
+    }
 };
 
 app.post('/api/login', (req, res) => {
