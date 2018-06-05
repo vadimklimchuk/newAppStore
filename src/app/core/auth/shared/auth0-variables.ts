@@ -1,3 +1,5 @@
+import {environment} from '../../../../environments/environment';
+
 interface AuthConfig {
   clientID: string;
   domain: string;
@@ -11,9 +13,9 @@ interface LogoutConfig {
 }
 
 export const AUTH_CONFIG: AuthConfig = {
-  clientID: 'GmSsgAyOMWYQ7jPID5cVPJMo1m931NIC',
-  domain: 'vadimklimchuk.auth0.com',
-  callbackURL: 'http://localhost:4200/callback'
+  clientID: environment.clientID,
+  domain: environment.domain,
+  callbackURL: environment.callback
 };
 
 export const LOGOUT_CONFIG: LogoutConfig = {
