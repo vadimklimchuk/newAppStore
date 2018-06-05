@@ -54,3 +54,18 @@ h1:hover {
     color: forestgreen;
     padding-top: 20px;
 }
+
+.jwt-authorization {
+    width: 100%;
+    text-align: center;
+    padding-top: 200px;
+}
+
+.jwt-authorization button {
+    width: 178px;
+    cursor: pointer;
+}
+
+.jwt {
+    margin-right: 10px;
+}

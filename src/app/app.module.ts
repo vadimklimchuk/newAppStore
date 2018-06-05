@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { CallToActionComponent } from './call-to-action/call-to-action.component';
@@ -8,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './services/cart.service';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
+import { JwtAuthService } from './services/jwt-auth.service';
 
 @NgModule({
   declarations: [
@@ -18,8 +21,10 @@ import { CartSummaryComponent } from './cart-summary/cart-summary.component';
   imports: [
     BrowserModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
+  providers: [JwtAuthService],
   bootstrap: [AppComponent]
 })
 
