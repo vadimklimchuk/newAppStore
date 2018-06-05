@@ -5,7 +5,7 @@
             {{ cartService.itemCount }} item(s)
             {{ cartService.cartPrice | currency:"USD":true:"2.2-2" }}
         </span>
-        <span *ngIf="cartService.itemCount">
+        <span *ngIf="!cartService.itemCount">
             (empty)
         </span>
     </small>
