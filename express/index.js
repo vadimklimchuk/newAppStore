@@ -15,15 +15,17 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/dist'));
+
 app.get('/data', (request, response) => {
     response.set('Content-type', 'application/json;charset=utf-8')
         .sendFile(__dirname + '/file.json');
 });
+
 app.get('/api', (req, res) => {
     res.json({
         message: 'Welcome to the api'
     })
-})
+});
 
 app.get("*", (req, res, next) => {
     res.sendFile(path.join(__dirname, '/dist/index.html'));
@@ -48,14 +50,14 @@ app.post('/api/login', (req, res) => {
         const userWithoutPassword = {...user};
         delete userWithoutPassword.pw;
         const token = jwt.sign(userWithoutPassword, config.secret, { expiresIn: config.tokenLife});
-        const refreshToken = jwt.sign(userWithoutPassword, config.refreshTokenSecret, { expiresIn: config.refreshTokenLife})
+        const refreshToken = jwt.sign(userWithoutPassword, config.refreshTokenSecret, { expiresIn: config.refreshTokenLife});
 
         const response = {
           user: userWithoutPassword,
           token: token,
           refreshToken: refreshToken
-        }
-        tokenList[refreshToken] = response
+        };
+        tokenList[refreshToken] = response;
         res.status(200).json(response);
       } else {
         res.status(403).send({

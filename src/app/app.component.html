@@ -1,6 +1,6 @@
-<div *ngIf="!loggedIn; else dashboard" class="jwt-authorization">
+<div *ngIf="!loggedIn; else dashboard" (keydown.enter)="doLogin()" class="jwt-authorization">
   <input type="text" placeholder="Email" [(ngModel)]="email"><br><br>
-  <input type="text" placeholder="Password" [(ngModel)]="password"><br><br>
+  <input type="password" placeholder="Password" [(ngModel)]="password"><br><br>
   <button *ngIf="!loggedIn" (click)="doLogin()">Login JWT</button>
 
   <div *ngIf="!loggedIn" class="logged-out">
@@ -31,14 +31,14 @@
               (click)="doLogout()">
                 Logout JWT
             </button>
-    
+
             <button id="qsLoginBtn"
               class="btn btn-info my-sm-0"
               *ngIf="!authService.isAuthenticated()"
               (click)="authService.login()" type="button">
                 Log In Auth0
             </button>
-    
+
             <button id="qsLogoutBtn"
               class="btn btn-info my-2 my-sm-0"
               *ngIf="authService.isAuthenticated()"
@@ -55,4 +55,4 @@
     <router-outlet></router-outlet>
     <app-call-to-action></app-call-to-action>
   </div>
-</ng-template> 
+</ng-template>

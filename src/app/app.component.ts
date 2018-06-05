@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   constructor(public authService: AuthService,
               public jwtAuthService: JwtAuthService) {
     authService.handleAuthentication();
-    
+
     this.jwtAuthService.loggedIn.subscribe(loggedIn => {
       this.loggedIn = loggedIn;
     });
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   }
 
   doLogin() {
-    this.jwtAuthService.login(this.email, this.password)
+    this.jwtAuthService.login(this.email, this.password);
   }
 
   doLogout() {
