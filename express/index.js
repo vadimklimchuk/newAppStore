@@ -33,6 +33,10 @@ const appUsers = {
     'vadim@gmail.com': {
       name: 'Vadim Klimchuk',
       pw: '1234'
+    },
+    'artem@gmail.com': {
+      name: 'Artem Pass',
+      pw: '123'
     }
 };
 
