@@ -18,7 +18,6 @@
           <tr *ngFor="let line of cartService.lines">
               <td>
                   <input type="number" class="form-control-sm"
-                  style="width:5em"
                   [value]="line.quantity"
                   (change)="cartService.updateQuantity(line.product,
                   $event.target.value)"/>
@@ -52,7 +51,7 @@
 <div class="text-xs-center">
   <button class="btn btn-primary" (click)="continueShop()">Continue Shopping</button>
   <button class="btn btn-secondary" (click)="goCheckout()"
-        [disabled]="cartService.lines.length == 0">
+        [disabled]="!cartService.lines.length">
             Checkout
     </button>
 </div>

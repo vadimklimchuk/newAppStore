@@ -48,9 +48,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   checking() {
-    if(this.formModel.valid) {
-      this.submit = true;
-    }
+    this.submit = this.formModel.valid && true;
     return false;
   }
 

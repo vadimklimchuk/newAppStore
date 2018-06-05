@@ -4,26 +4,25 @@ import { Subject } from "rxjs/Subject";
 @Injectable()
 export class LocalStorageService {
 
-  setLocaleStorageBg(formModel) {
-    localStorage.setItem('bg', JSON.stringify(formModel.value.background));
+  setLocaleStorageBg(background) {
+    localStorage.setItem('bg', JSON.stringify(background));
   }
 
-  setLocaleStorageView(formModel) {
-    localStorage.setItem('view', JSON.stringify(formModel.value.viewDashboard));
+  setLocaleStorageView(viewDashboard) {
+    localStorage.setItem('view', JSON.stringify(viewDashboard));
   }
 
-  setLocaleStorageCallTo(formModel) {
-    localStorage.setItem('callTo', JSON.stringify(formModel.value.action));
+  setLocaleStorageCallTo(action) {
+    localStorage.setItem('callTo', JSON.stringify(action));
   }
 
   getBackground() {
     const storageBg = localStorage.getItem('bg');
     const bg = JSON.parse(storageBg);
 
-    if (bg !== null) {
-      return bg;
-    }
+    return bg || '';
   }
+
 
   getViewDashboard() {
     const storageDashboard = localStorage.getItem('view');
