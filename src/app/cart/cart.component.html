@@ -18,9 +18,9 @@
           <tr *ngFor="let line of cartService.lines">
               <td>
                   <input type="number" class="form-control-sm"
-                  [value]="line.quantity"
-                  (change)="cartService.updateQuantity(line.product,
-                  $event.target.value)"/>
+                  [ngModel]="line.quantity"
+                  (ngModelChange)="updateQuantity(line.product,
+                  $event)"/>
               </td>
               <td>{{line.product.name}}</td>
               <td class="text-xs-right">
@@ -31,7 +31,7 @@
               </td>
               <td class="text-xs-center">
                   <button class="btn btn-sm btn-danger"
-                  (click)="cartService.removeLine(line.product.id)">
+                  (click)="removeLine(line.product.id)">
                       Remove
                   </button>
               </td>
@@ -50,8 +50,9 @@
 
 <div class="text-xs-center">
   <button class="btn btn-primary" (click)="continueShop()">Continue Shopping</button>
-  <button class="btn btn-secondary" (click)="goCheckout()"
-        [disabled]="!cartService.lines.length">
+  <button *ngIf="cartLines()"
+        class="btn btn-secondary"
+        (click)="goCheckout()">
             Checkout
     </button>
 </div>
