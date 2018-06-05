@@ -15,9 +15,7 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService,
               private router: Router) { }
 
-  ngOnInit() {
-    console.log(this.cartLines())
-  }
+  ngOnInit() { }
 
   continueShop() {
     this.router.navigateByUrl("/category");
@@ -36,6 +34,14 @@ export class CartComponent implements OnInit {
   }
 
   cartLines() {
+    return this.cartService.lines;
+  }
+
+  cartLinesLength() {
     return this.cartService.lines.length;
+  }
+
+  cartPrice() {
+    return this.cartService.cartPrice;
   }
 }
