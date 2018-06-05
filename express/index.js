@@ -34,20 +34,20 @@ const appUsers = {
       name: 'Vadim Klimchuk',
       pw: '1234'
     },
-    'artem@gmail.com': {
-      name: 'Artem Pass',
-      pw: '123'
+    'akella1997@tut.by': {
+      name: 'Artsiom Pas',
+      pw: '1234'
     }
 };
 
 app.post('/api/login', (req, res) => {
-  
+
     if (req.body) {
       const user = appUsers[req.body.email];
       if (user && user.pw === req.body.password) {
         const userWithoutPassword = {...user};
         delete userWithoutPassword.pw;
-        const token = jwt.sign(userWithoutPassword, config.secret, { expiresIn: config.tokenLife}); 
+        const token = jwt.sign(userWithoutPassword, config.secret, { expiresIn: config.tokenLife});
         const refreshToken = jwt.sign(userWithoutPassword, config.refreshTokenSecret, { expiresIn: config.refreshTokenLife})
 
         const response = {
