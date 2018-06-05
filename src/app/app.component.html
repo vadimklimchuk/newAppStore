@@ -1,8 +1,7 @@
-<div *ngIf="!loggedIn; else mainPage" class="jwt-authorization">
-  <input type="text" placeholder="Email"><br><br>
-  <input type="text" placeholder="Password"><br><br>
-  <button *ngIf="!loggedIn" (click)="doLogin()">Login</button>
-  <button *ngIf="loggedIn" (click)="doLogout()">Logout</button>
+<div *ngIf="!loggedIn; else dashboard" class="jwt-authorization">
+  <input type="text" placeholder="Email" [(ngModel)]="email"><br><br>
+  <input type="text" placeholder="Password" [(ngModel)]="password"><br><br>
+  <button *ngIf="!loggedIn" (click)="doLogin()">Login JWT</button>
 
   <div *ngIf="!loggedIn" class="logged-out">
     You are not logged in.
@@ -12,7 +11,7 @@
   </div>
 </div>
 
-<ng-template #mainPage>
+<ng-template #dashboard>
   <div class="wrapper">
     <div class="title text-white">
       <h1 routerLink="/dashboard">{{title}}</h1>
@@ -26,19 +25,25 @@
               routerLink="/home" type="button">
                 Home
             </button>
+
+            <button *ngIf="loggedIn"
+              class="btn btn-info my-sm-0 jwt"
+              (click)="doLogout()">
+                Logout JWT
+            </button>
     
             <button id="qsLoginBtn"
               class="btn btn-info my-sm-0"
               *ngIf="!authService.isAuthenticated()"
               (click)="authService.login()" type="button">
-                Log In
+                Log In Auth0
             </button>
     
             <button id="qsLogoutBtn"
               class="btn btn-info my-2 my-sm-0"
               *ngIf="authService.isAuthenticated()"
               (click)="authService.logout()" type="button">
-                Log Out
+                Log Out Auth0
             </button>
           </form>
       </div>
@@ -49,5 +54,6 @@
     </nav>
     <router-outlet></router-outlet>
     <app-call-to-action></app-call-to-action>
-  </div>       
-</ng-template>
+  </div>
+</ng-template> 
+    

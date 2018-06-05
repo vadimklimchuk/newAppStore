@@ -2,8 +2,8 @@
     <small routerLink="/cart">
         Корзина:
         <span *ngIf="cartService.itemCount > 0">
-            {{ cart.itemCount }} item(s)
-            {{ cart.cartPrice | currency:"USD":true:"2.2-2" }}
+            {{ cartService.itemCount }} item(s)
+            {{ cartService.cartPrice | currency:"USD":true:"2.2-2" }}
         </span>
         <span *ngIf="cartService.itemCount == 0">
             (empty)
