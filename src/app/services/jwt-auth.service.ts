@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import * as moment from "moment";
+import {tap} from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 
@@ -10,8 +12,8 @@ export class JwtAuthService {
 
   api = 'http://localhost:5000/api';
   loggedIn: BehaviorSubject<boolean>;
-  token;
-  refreshToken;
+  authResult: {};
+  timer;
 
   constructor(
     private http: HttpClient
@@ -24,14 +26,16 @@ export class JwtAuthService {
     return localStorage.getItem('jwtToken');
   }
 
-  saveToken(token: string) {
-    localStorage.setItem('jwtToken', this.token);
-    localStorage.setItem('jwtRefreshToken', this.refreshToken);
+  saveToken(authResult) {
+    // const expiresAt = moment().add(authResult.expiresIn,'second');
+
+    localStorage.setItem('jwtToken', JSON.stringify(authResult.token));
+    // localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
   }
 
   destroyToken() {
     localStorage.removeItem('jwtToken');
-    localStorage.removeItem('jwtRefreshToken');
+    // localStorage.removeItem('expires_at');
   }
 
   login(email: string, password: string) {
@@ -40,9 +44,8 @@ export class JwtAuthService {
       password: password
     }).subscribe((resp: any) => {
       this.loggedIn.next(true);
-      this.token = resp.token;
-      this.refreshToken = resp.refreshToken;
-      this.saveToken(resp.token);
+      this.authResult = resp;
+      this.saveToken(resp);
     }, (errorResp) => {
       this.loggedIn.next(undefined);
     });
@@ -51,5 +54,16 @@ export class JwtAuthService {
   logout() {
     this.destroyToken();
     this.loggedIn.next(false);
+  }
+
+  check() {
+    return this.http.get(this.api + '/check')
+      .pipe(
+        tap((data: boolean) => {
+          data;
+          return data;
+        }
+        )
+      );
   }
 }
