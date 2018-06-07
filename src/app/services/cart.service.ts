@@ -9,7 +9,7 @@ export class CartService {
   public itemCount: number = 0;
   public cartPrice: number = 0;
 
-  addLine(product: Product, quantity: number = 1) {
+  public addLine(product: Product, quantity: number = 1) {
         let line = this.lines.find(line => line.product.id === product.id);
 
         if (line) {
@@ -21,7 +21,7 @@ export class CartService {
         this.recalculate();
   }
 
-  updateQuantity(product: Product, quantity: number) {
+  public updateQuantity(product: Product, quantity: number) {
         let line = this.lines.find(line => line.product.id === product.id);
 
         if (line) {
@@ -31,19 +31,19 @@ export class CartService {
         this.recalculate();
   }
 
-  removeLine(id: number) {
+  public removeLine(id: number) {
         let index = this.lines.findIndex(line => line.product.id === id);
         this.lines.splice(index, 1);
         this.recalculate();
   }
 
-  clear() {
+  public clear() {
         this.lines = [];
         this.itemCount = 0;
         this.cartPrice = 0;
   }
 
-  recalculate() {
+  private recalculate() {
         this.itemCount = 0;
         this.cartPrice = 0;
         this.lines.forEach(l => {

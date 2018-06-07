@@ -17,31 +17,31 @@ export class CartComponent implements OnInit {
 
   ngOnInit() { }
 
-  continueShop() {
+  public continueShop() {
     this.router.navigateByUrl("/category");
   }
 
-  goCheckout() {
+  public goCheckout() {
     this.router.navigateByUrl("/checkout");
   }
 
-  updateQuantity(quantity, value) {
+  public updateQuantity(quantity, value) {
     this.cartService.updateQuantity(quantity, value);
   }
 
-  removeLine(id: number) {
+  public removeLine(id: number) {
     this.cartService.removeLine(id);
   }
 
-  cartLines() {
+  public cartLines() {
     return this.cartService.lines;
   }
 
-  cartLinesLength() {
+  public cartLinesLength() {
     return this.cartService.lines.length;
   }
 
-  cartPrice() {
+  public cartPrice() {
     return this.cartService.cartPrice;
   }
 }

@@ -60,7 +60,7 @@ export class JwtAuthService {
     return this.http.get(this.api + '/check')
       .pipe(
         tap((data: boolean) => {
-          data;
+          this.loggedIn.next(data)
           return data;
         }
         )

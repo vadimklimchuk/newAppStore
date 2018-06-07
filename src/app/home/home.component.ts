@@ -50,15 +50,18 @@ export class HomeComponent implements OnInit {
   }
 
   setLocaleStorageBg() {
-    this.localStorage.setLocaleStorageBg(this.formModel.value.background);
+    const background = this.formModel.value.background;
+    this.localStorage.setLocaleStorageBg(background);
   }
 
   setLocaleStorageView() {
-    this.localStorage.setLocaleStorageView(this.formModel.value.viewDashboard);
+    const view = this.formModel.value.viewDashboard;
+    this.localStorage.setLocaleStorageView(view);
   }
 
   setLocaleStorageCallTo() {
-    this.localStorage.setLocaleStorageCallTo(this.formModel.value.action);
+    const callTo = this.formModel.value.action
+    this.localStorage.setLocaleStorageCallTo(callTo);
   }
 
 }
