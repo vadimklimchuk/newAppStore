@@ -7,6 +7,8 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs/Observable';
 import { catchError, map, shareReplay } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
+import { Subject } from 'rxjs/Subject';
+import * as Rx from "rxjs";
 
 @Injectable()
 export class ProductsService {

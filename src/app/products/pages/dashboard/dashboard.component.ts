@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { NgProgress } from 'ngx-progressbar';
+
+import { Observable } from 'rxjs/Observable';
 
 import { Product } from '../../shared/product.model';
 import { ProductsService } from '../../../services/products.service';
 import { LocalStorageService } from '../../../services/local-storage.service';
-import { JwtAuthService } from '../../../services/jwt-auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +19,8 @@ export class DashboardComponent implements OnInit {
   public bgDash = "#F0F1F2";
 
   constructor(private productsService: ProductsService,
-              private localStorage: LocalStorageService) { }
+              private localStorage: LocalStorageService,
+              private ngProgress: NgProgress) { }
 
   ngOnInit() {
     this.getProducts();
@@ -26,8 +29,13 @@ export class DashboardComponent implements OnInit {
   }
 
   getProducts(): void {
+    this.ngProgress.start();
+    
     this.productsService.getProducts()
-      .subscribe(product => this.products = product);
+      .subscribe(product => {
+        this.products = product
+        this.ngProgress.done();
+      });
   }
 
   getBackground(): void {

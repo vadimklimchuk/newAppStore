@@ -1,3 +1,11 @@
+<ng-progress
+    [positionUsing]="'marginLeft'"
+    [direction]="'leftToRightIncreased'"
+    [trickleSpeed]="500" 
+    [thick]="true" 
+    [ease]="'easeInSine'"
+></ng-progress>
+
 <div class="mainContent">
   <div class="col-xs-3 p-a-1 article">
     <button *ngFor="let type of menuCategories" class="btn btn-outline-primary btn-block"

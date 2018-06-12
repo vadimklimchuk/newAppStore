@@ -1,4 +1,12 @@
 <div *ngIf="product" class="product-wrap">
+    <ng-progress
+        [positionUsing]="'marginLeft'"
+        [direction]="'leftToRightIncreased'"
+        [trickleSpeed]="500" 
+        [thick]="true" 
+        [ease]="'easeInSine'"
+    ></ng-progress>
+
   <div class="product-info bg-info text-white">
       <h2>{{ product.name }} details</h2>
       <div><span>Id: </span>{{product.id}}</div>

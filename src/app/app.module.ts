@@ -8,7 +8,6 @@ import { CallToActionComponent } from './call-to-action/call-to-action.component
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
-import { JwtAuthService } from './services/jwt-auth.service';
 import { LocalStorageService } from './services/local-storage.service';
 
 @NgModule({
@@ -23,7 +22,7 @@ import { LocalStorageService } from './services/local-storage.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [LocalStorageService, JwtAuthService],
+  providers: [LocalStorageService],
   bootstrap: [AppComponent]
 })
 

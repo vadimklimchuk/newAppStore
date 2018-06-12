@@ -7,74 +7,71 @@ const config = require('./config')
 const app = express();
 
 app.use(cors());
-
 app.use(bodyParser.json());
 
 app.get('/api', (req, res) => {
-    res.json({
-        message: 'Welcome to the api'
-    })
-})
+  res.json({
+    message: 'Welcome to the API'
+  });
+});
 
-const appUsers = {
-    'vadim@gmail.com': {
-      name: 'Vadim Klimchuk',
-      pw: '1234' 
-    },
-    'akella1997@tut.by': {
-      name: 'Artsiom Pas',
-      pw: '1234'
-    }
-  };
+const user = {
+  name: 'vadim',
+  password: '1234',
+  id: '1'
+};
 
+app.post('/api/login', (req, res) => {
+      if (req.body) {
+        if (user && user.password === req.body.password) {
+          const token = jwt.sign(user, config.secret, {
+            algorithm: 'HS256',
+            expiresIn: 10
+          }); 
   
-  app.post('/api/login', (req, res) => {
-  
-    if (req.body) {
-      const user = appUsers[req.body.email];
-      if (user && user.pw === req.body.password) {
-        // const userWithoutPassword = {...user};
-        // delete userWithoutPassword.pw;
-        const token = jwt.sign(user, config.secret, {
-          algorithm: 'HS256',
-          expiresIn: 5
-        }); 
-
-        const response = {
-          user: user,
-          token: token
-          // expiresIn: 3
+          const response = {
+            token: token
+          }
+          res.status(200).json(response);
+        } else {
+          res.status(403).send({
+            errorMessage: 'Permission denied!'
+          });
         }
-        res.status(200).json(response);
       } else {
         res.status(403).send({
-          errorMessage: 'Permission denied!'
+          errorMessage: 'Please provide name and password'
         });
-      }
-    } else {
-      res.status(403).send({
-        errorMessage: 'Please provide email and password'
-      });
-    }
-  
-  });
+      }  
+});
 
-  app.get('/api/check', (req, res) => {
-    let userToken = req.get('authorization');
+app.get('/api/check', verifyToken, function (req, res) {
   
-    userToken = userToken;
-  
-    jwt.verify(userToken, config.secret, (err, decoded) => {
-      if (err) {
-        console.log(err);
-        res.send(false);
-      }
-      if (decoded) {
-        console.log('DECODED!');
-        res.send(true);
-      }
-    });
-  
+  jwt.verify(req.token, config.secret, (err, decoded) => {
+    if(decoded) {
+      res.send(true);
+    } else {
+      console.log(err)
+      res.send(false);
+    } 
   });
+});
+
+
+function verifyToken(req, res, next) {
+  const bearerHeader = req.get('authorization');
+
+  if(typeof bearerHeader !== 'undefined') {
+
+    const bearer = bearerHeader.replace(/^Bearer\s/, '');
+
+    req.token = bearer;
+
+    next();
+  } else {
+    res.sendStatus(403);
+  }
+
+}
 
 app.listen(config.port, () => console.log('Server started on port 5000'));

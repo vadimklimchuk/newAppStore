@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { StoreComponent } from './category.component';
 import { TypeCategoryPipe } from './type-category.pipe';
 import { ProductsService } from '../../../services/products.service';
+import { NgProgressModule } from 'ngx-progressbar';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    NgProgressModule,
     RouterModule.forChild(routes)
   ],
   declarations: [
