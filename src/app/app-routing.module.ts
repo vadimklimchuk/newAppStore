@@ -13,7 +13,6 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './cart/checkout/checkout.component';
 
 const lazyCategory = 'app/products/pages/category/category.module#CategoryModule';
-const lazyHome = 'app/home/home.module#HomeModule';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

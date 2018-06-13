@@ -5,31 +5,44 @@ import { Product } from '../products/shared/product.model';
 import { environment } from '../../environments/environment';
 
 import { Observable } from 'rxjs/Observable';
-import { catchError, map, shareReplay } from 'rxjs/operators';
+import { catchError, map, shareReplay, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { Subject } from 'rxjs/Subject';
 import * as Rx from "rxjs";
 
 @Injectable()
 export class ProductsService {
-  private products: Observable<Array<Product>>;
+  private products: Product[] = [];
 
   constructor(private http: HttpClient) {
   }
 
-  getProducts(): Observable<Product[]> {
-    return !!this.products
-      ? this.products
-      : (this.products = this.http.get<Product[]>(`${environment.baseUrl}/data`)
+  public getProducts(): Observable<Product[]> {
+    // debugger;
+    // console.log(this.products)
+    return Observable.if(
+      () => !!(this.products && this.products.length),
+      Observable.of(this.products),
+      this.http.get<Product[]>(`${environment.baseUrl}/data`)
         .pipe(
+          tap((data) => this.products = data),
           map(data => data),
-          shareReplay(1),
           catchError(this.handleError('getProducts', []))
         )
-      )
+    );
+    // return !!this.products
+    //   ? this.products
+    //   : (this.products = this.http.get<Product[]>(`${environment.baseUrl}/data`)
+    //     .pipe(
+    //       tap((data) => console.log("data", data, "this.products", this.products)),
+    //       map(data => data),
+    //       shareReplay(1),
+    //       catchError(this.handleError('getProducts', []))
+    //     )
+    //   )
   }
 
-  getProduct(id: number): Observable<Product> {
+  public getProduct(id: number): Observable<Product> {
     return this.getProducts()
     .pipe(
       map(item => item[id]),

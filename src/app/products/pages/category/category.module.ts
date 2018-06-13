@@ -24,7 +24,6 @@ const routes: Routes = [
     StoreComponent,
     TypeCategoryPipe
   ],
-  exports: [RouterModule],
-  providers: [ProductsService]
+  exports: [RouterModule]
 })
 export class CategoryModule { }

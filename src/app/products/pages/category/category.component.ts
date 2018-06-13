@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { NgProgress } from 'ngx-progressbar';
 
 import { Product } from "../../shared/product.model";
 import { ProductsService } from "../../../services/products.service";
+
+
+
+
+
+
 
 @Component({
   selector: 'app-store',
@@ -15,20 +20,17 @@ export class StoreComponent implements OnInit {
 
   public menuCategories: Array<string> = ['Category 1', 'Category 2', 'Category 3', 'Category 4'];
 
-  constructor(private productsService: ProductsService,
-              private ngProgress: NgProgress) { }
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
     this.getProducts();
   }
 
   getProducts(): void {
-    this.ngProgress.start();
 
     this.productsService.getProducts()
       .subscribe(products => {
         this.products = products;
-        this.ngProgress.done();
       });
   }
 
