@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './products/pages/dashboard/dashboard.component';
@@ -7,7 +6,6 @@ import { DetailCardComponent } from './products/pages/detail-card/detail-card.co
 import { HomeComponent } from './home/home.component';
 import { CallbackComponent } from './core/auth/callback/callback.component';
 import { ProductResolveService } from './products/pages/detail-card/product-resolve.service';
-import { CategoryModule } from './products/pages/category/category.module';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './cart/checkout/checkout.component';

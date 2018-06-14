@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './core/auth/shared/auth.service';
 import { HttpClient } from '@angular/common/http';
-import { JwtAuthService } from './services/jwt-auth.service';
+import { JwtAuthService } from './core/auth/shared/jwt-auth.service';
 
 @Component({
   selector: 'app-root',

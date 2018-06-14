@@ -1,14 +1,10 @@
-
 <div *ngIf="!loggedIn; else dashboard" class="jwt-authorization">
   <input type="text" placeholder="Name" [(ngModel)]="name"><br><br>
   <input type="password" placeholder="Password" [(ngModel)]="password"><br><br>
 
-<button *ngIf="!loggedIn" (click)="doLogin()">Login JWT</button>
-   
-     <div *ngIf="!loggedIn" class="logged-out">
-       You are not logged in.
-     </div>
-   </div>
+  <button class="btn btn-primary" *ngIf="!loggedIn" (click)="doLogin()">Login JWT</button>
+
+</div>
 
 <ng-template #dashboard>
   <div class="wrapper">

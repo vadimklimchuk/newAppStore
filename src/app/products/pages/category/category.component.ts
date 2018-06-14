@@ -4,11 +4,6 @@ import { Product } from "../../shared/product.model";
 import { ProductsService } from "../../../services/products.service";
 
 
-
-
-
-
-
 @Component({
   selector: 'app-store',
   templateUrl: './category.component.html',

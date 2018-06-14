@@ -5,7 +5,7 @@ import { Product } from '../products/shared/product.model';
 import { environment } from '../../environments/environment';
 
 import { Observable } from 'rxjs/Observable';
-import { catchError, map, shareReplay, tap } from 'rxjs/operators';
+import { catchError, map, shareReplay } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 
 
@@ -22,7 +22,6 @@ export class ProductsService {
       ? this.products
       : (this.products = this.http.get<Product[]>(`${environment.baseUrl}/data`)
         .pipe(
-          tap((data) => console.log("data", data, "this.products", this.products)),
           map(data => data),
           shareReplay(1),
           catchError(this.handleError('getProducts', []))

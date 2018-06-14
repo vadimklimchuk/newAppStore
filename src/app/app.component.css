@@ -61,8 +61,19 @@ h1:hover {
     padding-top: 200px;
 }
 
+.jwt-authorization input {
+    width: 300px;
+    height: 40px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: none;
+    box-shadow: 0 0 5px rgba(202, 121, 54, 0.8);
+}
+
 .jwt-authorization button {
-    width: 178px;
+    width: 300px;
     cursor: pointer;
 }
 

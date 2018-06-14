@@ -38,6 +38,7 @@ input {
     padding: 5px 10px;
     border: none;
     margin-top: 20px;
+    box-shadow: 0 0 1rem rgba(67, 206, 16, 0.8);
 }
 
 input.ng-invalid {
