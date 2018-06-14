@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Routes, RouterModule } from '@angular/router';
+import {  RouterModule } from '@angular/router';
+import { NgProgressModule } from 'ngx-progressbar';
 
 import { ProductsService } from '../services/products.service';
 import { ProductResolveService } from './pages/detail-card/product-resolve.service';
@@ -14,7 +15,8 @@ import { AppRoutingModule } from '../app-routing.module';
     CommonModule,
     HttpClientModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgProgressModule
   ],
   declarations: [
     DashboardComponent,

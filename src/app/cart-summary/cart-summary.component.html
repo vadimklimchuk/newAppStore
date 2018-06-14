@@ -1,11 +1,11 @@
 <div class="pull-xs-right">
     <small routerLink="/cart">
         Корзина:
-        <span *ngIf="cartService.itemCount">
-            {{ cartService.itemCount }} item(s)
-            {{ cartService.cartPrice | currency:"USD":true:"2.2-2" }}
+        <span *ngIf="itemCount()">
+            {{ itemCount() }} item(s)
+            {{ cartPrice() | currency:"USD":true:"2.2-2" }}
         </span>
-        <span *ngIf="!cartService.itemCount">
+        <span *ngIf="!itemCount()">
             (empty)
         </span>
     </small>

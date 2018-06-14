@@ -1,12 +1,13 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Product } from '../products/shared/product.model';
 import { environment } from '../../environments/environment';
 
 import { Observable } from 'rxjs/Observable';
-import { catchError, map, shareReplay } from 'rxjs/operators';
+import { catchError, map, shareReplay, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
+
 
 @Injectable()
 export class ProductsService {
@@ -15,11 +16,13 @@ export class ProductsService {
   constructor(private http: HttpClient) {
   }
 
-  getProducts(): Observable<Product[]> {
+  public getProducts(): Observable<Product[]> {
+
     return !!this.products
       ? this.products
       : (this.products = this.http.get<Product[]>(`${environment.baseUrl}/data`)
         .pipe(
+          tap((data) => console.log("data", data, "this.products", this.products)),
           map(data => data),
           shareReplay(1),
           catchError(this.handleError('getProducts', []))
@@ -27,7 +30,7 @@ export class ProductsService {
       )
   }
 
-  getProduct(id: number): Observable<Product> {
+  public getProduct(id: number): Observable<Product> {
     return this.getProducts()
     .pipe(
       map(item => item[id]),

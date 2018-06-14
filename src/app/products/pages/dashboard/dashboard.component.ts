@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../shared/product.model';
 import { ProductsService } from '../../../services/products.service';
 import { LocalStorageService } from '../../../services/local-storage.service';
-import { JwtAuthService } from '../../../services/jwt-auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,8 +25,11 @@ export class DashboardComponent implements OnInit {
   }
 
   getProducts(): void {
+    
     this.productsService.getProducts()
-      .subscribe(product => this.products = product);
+      .subscribe(product => {
+        this.products = product
+      });
   }
 
   getBackground(): void {

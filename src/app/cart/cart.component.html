@@ -10,17 +10,17 @@
           </tr>
       </thead>
       <tbody>
-          <tr *ngIf="cartService.lines.length == 0">
+          <tr *ngIf="!cartLinesLength()">
               <td colspan="4" class="text-xs-center">
                   Your cart is empty
               </td>
           </tr>
-          <tr *ngFor="let line of cartService.lines">
+          <tr *ngFor="let line of cartLines()">
               <td>
                   <input type="number" class="form-control-sm"
-                  [value]="line.quantity"
-                  (change)="cartService.updateQuantity(line.product,
-                  $event.target.value)"/>
+                  [ngModel]="line.quantity"
+                  (ngModelChange)="updateQuantity(line.product,
+                  $event)"/>
               </td>
               <td>{{line.product.name}}</td>
               <td class="text-xs-right">
@@ -31,7 +31,7 @@
               </td>
               <td class="text-xs-center">
                   <button class="btn btn-sm btn-danger"
-                  (click)="cartService.removeLine(line.product.id)">
+                  (click)="removeLine(line.product.id)">
                       Remove
                   </button>
               </td>
@@ -41,7 +41,7 @@
           <tr>
               <td colspan="3" class="text-xs-right">Total:</td>
               <td class="text-xs-right">
-                  {{cartService.cartPrice | currency:"USD":true:"2.2-2"}}
+                  {{cartPrice() | currency:"USD":true:"2.2-2"}}
               </td>
           </tr>
       </tfoot>
@@ -50,8 +50,9 @@
 
 <div class="text-xs-center">
   <button class="btn btn-primary" (click)="continueShop()">Continue Shopping</button>
-  <button class="btn btn-secondary" (click)="goCheckout()"
-        [disabled]="!cartService.lines.length">
+  <button *ngIf="cartLinesLength()"
+        class="btn btn-secondary"
+        (click)="goCheckout()">
             Checkout
     </button>
 </div>

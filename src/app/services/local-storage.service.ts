@@ -4,19 +4,19 @@ import { Subject } from "rxjs/Subject";
 @Injectable()
 export class LocalStorageService {
 
-  setLocaleStorageBg(background) {
+  public setLocaleStorageBg(background) {
     localStorage.setItem('bg', JSON.stringify(background));
   }
 
-  setLocaleStorageView(viewDashboard) {
+  public setLocaleStorageView(viewDashboard) {
     localStorage.setItem('view', JSON.stringify(viewDashboard));
   }
 
-  setLocaleStorageCallTo(action) {
+  public setLocaleStorageCallTo(action) {
     localStorage.setItem('callTo', JSON.stringify(action));
   }
 
-  getBackground() {
+  public getBackground() {
     const storageBg = localStorage.getItem('bg');
     const bg = JSON.parse(storageBg);
 
@@ -24,7 +24,7 @@ export class LocalStorageService {
   }
 
 
-  getViewDashboard() {
+  public getViewDashboard() {
     const storageDashboard = localStorage.getItem('view');
     const view = JSON.parse(storageDashboard);
 
@@ -33,7 +33,7 @@ export class LocalStorageService {
     }
   }
 
-  getCTA() {
+  public getCTA() {
     const action = JSON.parse(localStorage.getItem('callTo'));
     return JSON.parse(action || action !== null);
   }

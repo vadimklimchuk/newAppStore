@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -10,16 +10,38 @@ import { ProductsService } from '../services/products.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService,
               private router: Router) { }
 
-  continueShop() {
+  ngOnInit() { }
+
+  public continueShop() {
     this.router.navigateByUrl("/category");
   }
 
-  goCheckout() {
+  public goCheckout() {
     this.router.navigateByUrl("/checkout");
+  }
+
+  public updateQuantity(quantity, value) {
+    this.cartService.updateQuantity(quantity, value);
+  }
+
+  public removeLine(id: number) {
+    this.cartService.removeLine(id);
+  }
+
+  public cartLines() {
+    return this.cartService.lines;
+  }
+
+  public cartLinesLength() {
+    return this.cartService.lines.length;
+  }
+
+  public cartPrice() {
+    return this.cartService.cartPrice;
   }
 }

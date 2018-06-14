@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './core/auth/shared/auth.service';
+import { HttpClient } from '@angular/common/http';
 import { JwtAuthService } from './services/jwt-auth.service';
 
 @Component({
@@ -9,12 +10,13 @@ import { JwtAuthService } from './services/jwt-auth.service';
 })
 export class AppComponent implements OnInit {
   public title = 'App Store';
-  public email = '';
-  public password = '';
+  public name = 'vadim';
+  public password = '1234';
   public loggedIn;
 
   constructor(public authService: AuthService,
-              public jwtAuthService: JwtAuthService) {
+              private jwtAuthService: JwtAuthService,
+              private http: HttpClient) {
     authService.handleAuthentication();
 
     this.jwtAuthService.loggedIn.subscribe(loggedIn => {
@@ -23,10 +25,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.jwtAuthService.check()
+      .subscribe();
   }
 
   doLogin() {
-    this.jwtAuthService.login(this.email, this.password);
+    this.jwtAuthService.login(this.name, this.password);
   }
 
   doLogout() {

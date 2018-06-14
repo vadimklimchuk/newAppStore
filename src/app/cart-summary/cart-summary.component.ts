@@ -9,4 +9,12 @@ import { CartService } from '../services/cart.service';
 export class CartSummaryComponent {
 
   constructor(private cartService: CartService) { }
+
+  itemCount() {
+    return this.cartService.itemCount;
+  }
+
+  cartPrice() {
+    return this.cartService.cartPrice;
+  }
 }

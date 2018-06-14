@@ -5,7 +5,6 @@ const foo = require('./file.json');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const config = require('./config')
-const tokenList = {};
 const app = express();
 
 const port = process.env.PORT || '5000';
@@ -15,49 +14,28 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/dist'));
-
 app.get('/data', (request, response) => {
     response.set('Content-type', 'application/json;charset=utf-8')
         .sendFile(__dirname + '/file.json');
 });
 
-app.get('/api', (req, res) => {
-    res.json({
-        message: 'Welcome to the api'
-    })
-});
-
-app.get("*", (req, res, next) => {
-    res.sendFile(path.join(__dirname, '/dist/index.html'));
-});
-
-const appUsers = {
-    'vadim@gmail.com': {
-      name: 'Vadim Klimchuk',
-      pw: '1234'
-    },
-    'akella1997@tut.by': {
-      name: 'Artsiom Pas',
-      pw: '1234'
-    }
+const user = {
+    name: 'vadim',
+    password: '1234',
+    id: '1'
 };
 
 app.post('/api/login', (req, res) => {
-
     if (req.body) {
-      const user = appUsers[req.body.email];
-      if (user && user.pw === req.body.password) {
-        const userWithoutPassword = {...user};
-        delete userWithoutPassword.pw;
-        const token = jwt.sign(userWithoutPassword, config.secret, { expiresIn: config.tokenLife});
-        const refreshToken = jwt.sign(userWithoutPassword, config.refreshTokenSecret, { expiresIn: config.refreshTokenLife});
-
+      if (user && user.password === req.body.password) {
+        const token = jwt.sign(user, config.secret, {
+          algorithm: 'HS256',
+          expiresIn: 10
+        }); 
+  
         const response = {
-          user: userWithoutPassword,
-          token: token,
-          refreshToken: refreshToken
-        };
-        tokenList[refreshToken] = response;
+          token: token
+        }
         res.status(200).json(response);
       } else {
         res.status(403).send({
@@ -66,9 +44,41 @@ app.post('/api/login', (req, res) => {
       }
     } else {
       res.status(403).send({
-        errorMessage: 'Please provide email and password'
+        errorMessage: 'Please provide name and password'
       });
+    }  
+  });
+  
+  app.get('/api/check', verifyToken, function (req, res) {
+    
+    jwt.verify(req.token, config.secret, (err, decoded) => {
+      if(decoded) {
+        res.send(true);
+      } else {
+        console.log(err)
+        res.send(false);
+      } 
+    });
+  });
+  
+  function verifyToken(req, res, next) {
+    const bearerHeader = req.get('authorization');
+  
+    if(typeof bearerHeader !== 'undefined') {
+  
+      const bearer = bearerHeader.replace(/^Bearer\s/, '');
+  
+      req.token = bearer;
+  
+      next();
+    } else {
+      res.sendStatus(403);
     }
+  
+  }
+
+app.get("*", (req, res, next) => {
+    res.sendFile(path.join(__dirname, '/dist/index.html'));
 });
 
 app.listen(app.get('port'), function () {

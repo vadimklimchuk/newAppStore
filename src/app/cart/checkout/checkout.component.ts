@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ValidatorService } from './validator.service';
 
 @Component({
   selector: 'app-checkout',
@@ -13,16 +14,17 @@ export class CheckoutComponent implements OnInit {
   public formModel: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private router: Router) {}
+              private router: Router,
+              private validatorService: ValidatorService) {}
 
   ngOnInit() {
     this.formModel = this.fb.group({
       firstName: ['',
-        [Validators.required, this.nameValidator]],
+        [Validators.required, this.validatorService.nameValidator]],
       lastName: ['',
         [Validators.required, Validators.minLength(4)]],
       email: ['',
-        [Validators.required, this.emailValidator]],
+        [Validators.required, this.validatorService.emailValidator]],
       country: ['',
         [Validators.required, Validators.minLength(3)]],
       city: ['',
@@ -33,18 +35,6 @@ export class CheckoutComponent implements OnInit {
         [Validators.required, Validators.minLength(3)]]
     });
     this.checking();
-  }
-
-  public nameValidator(control: FormControl): { [key: string]: boolean } {
-    const value = control.value || '';
-    const valid = /^[a-zA-Zа-яА-Я]+$/.test(value);
-    return valid ? null : {nospecial: true};
-  }
-
-  public emailValidator(control: FormControl): { [key: string]: boolean } {
-    const value = control.value || '';
-    const valid = /.+@.+\..+/.test(value);
-    return valid ? null : {nospecial: true};
   }
 
   checking() {

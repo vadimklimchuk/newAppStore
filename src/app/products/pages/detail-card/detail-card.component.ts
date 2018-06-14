@@ -20,14 +20,15 @@ export class DetailCardComponent implements OnInit {
               private route: ActivatedRoute,
               private location: Location,
               private cart: CartService,
-              private router: Router,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
     this.getProduct();
   }
 
   getProduct(): void {
+
     const id = +this.route.snapshot.paramMap.get('id') - 1;
     this.productsService.getProduct(id).subscribe(product => {
       this.product = product;
