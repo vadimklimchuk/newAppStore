@@ -11,6 +11,8 @@ import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 import { LocalStorageService } from './services/local-storage.service';
+import { JwtAuthService } from './services/jwt-auth.service';
+import { AuthInterceptor } from './http-interceptors/jwtAuth-interceptor';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { LocalStorageService } from './services/local-storage.service';
   ],
   providers: [
     LocalStorageService,
-    { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    JwtAuthService
   ],
   bootstrap: [AppComponent]
 })
