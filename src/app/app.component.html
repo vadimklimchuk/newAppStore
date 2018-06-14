@@ -1,7 +1,9 @@
+
 <div *ngIf="!loggedIn; else dashboard" class="jwt-authorization">
-  <input type="text" placeholder="Email" [(ngModel)]="name"><br><br>
-  <input type="text" placeholder="Password" [(ngModel)]="password"><br><br>
-  <button *ngIf="!loggedIn" (click)="doLogin()">Login JWT</button>
+  <input type="text" placeholder="Name" [(ngModel)]="name"><br><br>
+  <input type="password" placeholder="Password" [(ngModel)]="password"><br><br>
+
+<button *ngIf="!loggedIn" (click)="doLogin()">Login JWT</button>
    
      <div *ngIf="!loggedIn" class="logged-out">
        You are not logged in.
@@ -29,14 +31,14 @@
               (click)="doLogout()" type="button">
                 Logout JWT
             </button>
-    
+
             <button id="qsLoginBtn"
               class="btn btn-info my-sm-0"
               *ngIf="!authService.isAuthenticated()"
               (click)="authService.login()" type="button">
                 Log In Auth0
             </button>
-    
+
             <button id="qsLogoutBtn"
               class="btn btn-info my-2 my-sm-0"
               *ngIf="authService.isAuthenticated()"
@@ -54,4 +56,4 @@
     <app-call-to-action></app-call-to-action>
   </div>
 </ng-template>
-  
+
