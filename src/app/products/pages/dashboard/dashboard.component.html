@@ -5,7 +5,7 @@
         <li *ngFor="let product of products" class="list-item"
         routerLink="/product/{{product.id}}">{{product.name}}
         <span class="pull-xs-right tag tag-pill tag-primary price">
-            {{ product.price | currency:"USD":true:"2.2-2" }}
+            {{ product.price | currency }}
         </span>
         </li>
     </ul>
@@ -21,7 +21,7 @@
           </h4>
           <p>
               <span class="pull-xs-right tag tag-pill tag-primary price">
-                  {{ product.price | currency:"USD":true:"2.2-2" }}
+                  {{ product.price | currency }}
               </span>
           </p>
         </div>

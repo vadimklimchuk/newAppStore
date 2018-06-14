@@ -3,7 +3,7 @@
         Корзина:
         <span *ngIf="itemCount()">
             {{ itemCount() }} item(s)
-            {{ cartPrice() | currency:"USD":true:"2.2-2" }}
+            {{ cartPrice() | currency }}
         </span>
         <span *ngIf="!itemCount()">
             (empty)

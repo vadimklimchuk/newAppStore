@@ -7,7 +7,7 @@
       <div><span>Name: </span>{{product.name}}</div>
       <div><span>Category: </span>{{product.category}}</div>
       <div><span>Description: </span>{{product.description}}</div>
-      <div><span>Price: </span>{{product.price}}</div>
+      <div><span>Price: </span>{{product.price | currency}}</div>
       <div *ngIf="authService.isAuthenticated()" class="card-text p-a-1">
           <button class="btn btn-success btn-sm pull-xs-right"
               (click)="addProductToCart(product)">

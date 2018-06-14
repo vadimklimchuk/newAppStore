@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+
 import { NgProgressModule } from 'ngx-progressbar';
 
 import { ProductsService } from '../services/products.service';
