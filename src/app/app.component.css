@@ -84,3 +84,7 @@ h1:hover {
 .logout-jwt {
     margin-right: 10px;
 }
+
+.active {
+    background: #0a444d;
+}

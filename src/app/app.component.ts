@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './core/auth/shared/auth.service';
-import { HttpClient } from '@angular/common/http';
 import { JwtAuthService } from './core/auth/shared/jwt-auth.service';
 
 @Component({
@@ -15,8 +14,7 @@ export class AppComponent implements OnInit {
   public loggedIn;
 
   constructor(public authService: AuthService,
-              private jwtAuthService: JwtAuthService,
-              private http: HttpClient) {
+              private jwtAuthService: JwtAuthService) {
     authService.handleAuthentication();
 
     this.jwtAuthService.loggedIn.subscribe(loggedIn => {
