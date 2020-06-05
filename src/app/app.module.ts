@@ -1,35 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { AuthService } from './auth/auth.service';
-
-import { AppRoutingModule } from './app-routing.module';
-import { CallbackComponent } from './callback/callback.component';
 import { CallToActionComponent } from './call-to-action/call-to-action.component';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { CategoryModule } from './category/category.module';
-import { HomeModule } from './home/home.module';
-import { DetailCardModule } from './detail-card/detail-card.module';
-import { LocalStorageService } from './local-storage.service';
+import { SharedModule } from './shared/shared.module';
+import { AppRoutingModule } from './app-routing.module';
+import { CartComponent } from './cart/cart.component';
+import { CartService } from './services/cart.service';
+import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CallbackComponent,
-    CallToActionComponent
+    CallToActionComponent,
+    CartSummaryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    DashboardModule,
-    CategoryModule,
-    HomeModule,
-    DetailCardModule
+    SharedModule,
+    AppRoutingModule
   ],
-  providers: [AuthService, LocalStorageService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

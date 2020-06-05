@@ -1,7 +1,9 @@
-<h4 *ngIf="auth.isAuthenticated()">
-  <div *ngIf="profile">Hello {{profile.name}}. You can to change some styles</div>
+<h4>
+  <div *ngIf="profile" class="profile">
+    <img src="{{profile.picture}}" alt="profile picture" />
+    <div class="welcome">Hello {{profile.name}}. <br>You can to change some styles</div>
+  </div>
   <div class="forms" [formGroup]="formModel">
-
     <div class="block">
       <span>Select background for the Dashboard page</span>
       <select class="form-control" formControlName="background">
@@ -39,8 +41,4 @@
     </div>
 
   </div>
-</h4>
-
-<h4 *ngIf="!auth.isAuthenticated()">
-  You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
 </h4>
